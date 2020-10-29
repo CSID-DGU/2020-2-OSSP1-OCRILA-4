@@ -1,5 +1,5 @@
 ## 2020-2-OSSP1-OCRILA-4
-* [General](#General info)
+* [General](#General-info)
 * [Technologies](#Technologies)
 * [Preview](#Preview)
 
