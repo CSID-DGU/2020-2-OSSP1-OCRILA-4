@@ -26,7 +26,7 @@ kernel = np.ones((3, 3))
 
 imgDial = cv2.dilate(imgThreshold, kernel, iterations=2)  # APPLY DILATION
 imgThreshold = cv2.erode(imgDial, kernel, iterations=1)  # APPLY EROSION
-
+   
 
 ## FIND ALL COUNTOURS
 imgContours = img.copy()  # COPY IMAGE FOR DISPLAY PURPOSES
