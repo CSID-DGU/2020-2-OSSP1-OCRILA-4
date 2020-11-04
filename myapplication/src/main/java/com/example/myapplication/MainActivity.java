@@ -7,6 +7,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tab = findViewById(R.id.tab);
         tab.setupWithViewPager(vp);
 
+        ArrayList<Integer> images = new ArrayList<>();
+        images.add(R.drawable.home);
+        images.add(R.drawable.cam);
+        images.add(R.drawable.my);
+
+
+        for(int i=0; i<3; i++) tab.getTabAt(i).setIcon(images.get(i));
 
     }
 }
