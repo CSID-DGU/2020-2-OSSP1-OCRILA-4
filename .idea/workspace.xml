@@ -9,7 +9,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9f40e23-dcd9-4ba8-9715-173f52758171" name="Default Changelist" comment="" />
+    <list default="true" id="e9f40e23-dcd9-4ba8-9715-173f52758171" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/VPAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +47,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -54,7 +72,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android_SDK" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/myapplication/src/main/res/layout" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -125,7 +143,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="myapplication" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="myapplication" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="My_Application.myapplication" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -208,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604506905274</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1604507140928</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604507140928</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -216,33 +241,37 @@
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="358" y="203" key="#PSD" timestamp="1604507005790">
+    <state x="358" y="203" key="#PSD" timestamp="1604507088825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="358" y="203" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1604507005790" />
-    <state x="751" y="11" key="CommitChangelistDialog2" timestamp="1604506904738">
+    <state x="358" y="203" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1604507088825" />
+    <state x="993" y="245" key="AndroidCreateResourceFileDialog" timestamp="1604507775668">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="751" y="11" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604506904738" />
-    <state x="1117" y="178" key="FileChooserDialogImpl" timestamp="1604506642204">
+    <state x="993" y="245" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604507775668" />
+    <state x="751" y="11" key="CommitChangelistDialog2" timestamp="1604507140272">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1117" y="178" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604506642204" />
+    <state x="751" y="11" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604507140272" />
+    <state x="1117" y="178" key="FileChooserDialogImpl" timestamp="1604507564979">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1117" y="178" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604507564979" />
     <state x="642" y="77" key="SettingsEditor" timestamp="1604506072380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="642" y="77" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604506072380" />
-    <state x="742" y="186" key="Vcs.Push.Dialog.v2" timestamp="1604506923013">
+    <state x="742" y="186" key="Vcs.Push.Dialog.v2" timestamp="1604507156380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="742" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604506923013" />
+    <state x="742" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604507156380" />
     <state x="1086" y="241" key="git4idea.merge.GitPullDialog" timestamp="1604506749788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1086" y="241" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604506749788" />
-    <state x="1004" y="404" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1604506474604">
+    <state x="1004" y="404" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1604507070322">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1004" y="404" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604506474604" />
+    <state x="1004" y="404" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604507070322" />
   </component>
 </project>
