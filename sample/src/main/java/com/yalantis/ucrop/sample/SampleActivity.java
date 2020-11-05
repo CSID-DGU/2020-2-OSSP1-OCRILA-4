@@ -6,9 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -19,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
@@ -29,6 +32,7 @@ import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
 import com.yalantis.ucrop.UCropFragment;
 import com.yalantis.ucrop.UCropFragmentCallback;
+import com.yalantis.ucrop.view.TransformImageView;
 
 import java.io.File;
 import java.util.Locale;
@@ -101,6 +105,11 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
         if (resultCode == UCrop.RESULT_ERROR) {
             handleCropError(data);
         }
+        if(requestCode==30 && resultCode==RESULT_OK){
+            Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+            ImageView imageview = findViewById(R.id.result);
+            imageview.setImageBitmap(bitmap);
+        }
     }
 
     private TextWatcher mAspectRatioTextWatcher = new TextWatcher() {
@@ -158,6 +167,13 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
                         minSizePixels + random.nextInt(maxSizePixels - minSizePixels)));
 
                 startCrop(uri);
+            }
+        });
+        findViewById(R.id.camera).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,30);
             }
         });
         settingsView = findViewById(R.id.settings);
@@ -524,4 +540,5 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

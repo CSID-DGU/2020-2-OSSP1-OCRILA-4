@@ -25,6 +25,11 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+            <ImageView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
             <TextView
                 android:id="@+id/logo"
                 android:layout_width="wrap_content"
@@ -50,6 +55,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_crop_random_image"
+                android:textAllCaps="true"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="camera"
                 android:textAllCaps="true"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@android:color/white"
@@ -258,6 +273,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_hide_bottom_ui_controls"
                 android:textAppearance="?android:textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
 
         </LinearLayout>
 
