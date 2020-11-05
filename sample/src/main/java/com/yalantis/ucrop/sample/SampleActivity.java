@@ -10,6 +10,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -106,8 +107,9 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
             handleCropError(data);
         }
         if(requestCode==30 && resultCode==RESULT_OK){
+            setContentView(R.layout.activity_camera);
             Bitmap bitmap = (Bitmap)data.getExtras().get("data");
-            ImageView imageview = findViewById(R.id.result);
+            ImageView imageview = findViewById(R.id.camera);
             imageview.setImageBitmap(bitmap);
         }
     }
@@ -170,12 +172,13 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
             }
         });
         findViewById(R.id.camera).setOnClickListener(new View.OnClickListener() {
-            @Override
+           @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent,30);
             }
         });
+
         settingsView = findViewById(R.id.settings);
         mRadioGroupAspectRatio = findViewById(R.id.radio_group_aspect_ratio);
         mRadioGroupCompressionSettings = findViewById(R.id.radio_group_compression_settings);
@@ -234,7 +237,14 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
 
         startActivityForResult(Intent.createChooser(intent, getString(R.string.label_select_picture)), requestMode);
     }
+/*
+    private void usingCamera(){
 
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,30);
+
+    }
+*/
     private void startCrop(@NonNull Uri uri) {
         String destinationFileName = SAMPLE_CROPPED_IMAGE_NAME;
         switch (mRadioGroupCompressionSettings.getCheckedRadioButtonId()) {
