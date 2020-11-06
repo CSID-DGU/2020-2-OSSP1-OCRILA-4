@@ -13,4 +13,11 @@
         android:background="#EAE5DE"
         android:text="" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/title">
+     </ImageView>
+
+
 </FrameLayout>
