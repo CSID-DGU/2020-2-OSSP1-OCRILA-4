@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#E0B06D"
-        app:tabIconTint="@color/black"
-        app:tabIndicatorColor="#000000"
+        app:tabIconTint="#ffffff"
+        app:tabIndicatorColor="#ffffff"
         app:tabRippleColor="#DED1BC"
-        app:tabTextColor="#000000">
+        app:tabTextColor="#ffffff">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/tab_Item1"

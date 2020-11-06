@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EAE5DE"
+        android:background="#EEE6DB"
         android:text="" />
 
     <Button
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center"
-        android:background="#E0AA6D"
+        android:background="#E0B06D"
         android:text="사진 찍기" />
 
 

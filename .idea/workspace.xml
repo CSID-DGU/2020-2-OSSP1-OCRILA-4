@@ -10,16 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9f40e23-dcd9-4ba8-9715-173f52758171" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/render.experimental.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myapplication/src/main/res/drawable-v24/title.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/res/drawable/ic_baseline_account_circle_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myapplication/src/main/res/drawable/ic_baseline_lock_24.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment1.java" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/drawable-v24/title.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/drawable-v24/logo.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/values/themes.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +41,7 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3_XL_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R3CN104R50A]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -84,6 +96,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sujin\AndroidStudioProjects\MyApplication5\myapplication\src\main\res\drawable-v24" />
       <recent name="C:\Users\Sujin\AndroidStudioProjects\MyApplication4\myapplication\src\main\res\drawable-v24" />
       <recent name="C:\Users\Sujin\AndroidStudioProjects\MyApplication4\myapplication\src\main\res\layout" />
     </key>
@@ -257,14 +270,22 @@
       <option name="project" value="LOCAL" />
       <updated>1604511446023</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="&quot;사진 찍기&quot; button commit">
+      <created>1604682072032</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604682072032</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="tab 1,2,3 commit" />
     <MESSAGE value="tab commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="tab commit" />
+    <MESSAGE value="&quot;사진 찍기&quot; button commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;사진 찍기&quot; button commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="358" y="203" key="#PSD" timestamp="1604507088825">
@@ -283,10 +304,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="437" y="153" key="AndroidThemeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604509774233" />
-    <state x="751" y="11" key="CommitChangelistDialog2" timestamp="1604511445416">
+    <state x="751" y="11" key="CommitChangelistDialog2" timestamp="1604682069666">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="751" y="11" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604511445416" />
+    <state x="751" y="11" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604682069666" />
     <state x="1117" y="178" key="FileChooserDialogImpl" timestamp="1604507564979">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -311,14 +332,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="642" y="77" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604506072380" />
-    <state x="742" y="186" key="Vcs.Push.Dialog.v2" timestamp="1604511462988">
+    <state x="742" y="186" key="Vcs.Push.Dialog.v2" timestamp="1604682074676">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="742" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604511462988" />
-    <state x="1177" y="262" key="chooseDestDirectoryDialog" timestamp="1604679648018">
+    <state x="742" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604682074676" />
+    <state x="1177" y="262" key="chooseDestDirectoryDialog" timestamp="1604689700182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1177" y="262" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604679648018" />
+    <state x="1177" y="262" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604689700182" />
     <state x="1086" y="241" key="git4idea.merge.GitPullDialog" timestamp="1604506749788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
