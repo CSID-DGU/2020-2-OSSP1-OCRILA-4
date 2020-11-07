@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">OCRLIA</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">카메라</string>
+    <string name="tab_text_2">내 정보</string>
 </resources>
