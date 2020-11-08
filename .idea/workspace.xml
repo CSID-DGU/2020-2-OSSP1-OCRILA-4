@@ -14,6 +14,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment1.java" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/Fragment1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/VPAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/java/com/example/myapplication/VPAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myapplication/src/main/res/layout/fragment_3.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +31,7 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R3CN104R50A]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -44,8 +52,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
+        <option value="layoutResourceFile" />
         <option value="valueResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,7 +79,7 @@
     <property name="android.recentlyUsedThemes" value="Theme.MaterialComponents.NoActionBar" />
     <property name="android.sdk.path" value="$USER_HOME$/Android_SDK" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/myapplication/src/main/res/drawable-v24" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/myapplication/src/main/res/drawable-v24" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -266,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604690077833</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="login manager commit">
+      <created>1604690560154</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604690560154</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -275,33 +291,38 @@
     <MESSAGE value="tab commit" />
     <MESSAGE value="&quot;사진 찍기&quot; button commit" />
     <MESSAGE value="login commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="login commit" />
+    <MESSAGE value="login manager commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="login manager commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="358" y="203" key="#PSD" timestamp="1604507088825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="358" y="203" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1604507088825" />
+    <state x="1115" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1604694884755">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1115" y="162" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604694884755" />
     <state x="624" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604679237008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="624" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604679237008" />
-    <state x="993" y="245" key="AndroidCreateResourceFileDialog" timestamp="1604510715855">
+    <state x="1063" y="230" width="846" height="521" key="AndroidCreateResourceFileDialog" timestamp="1604694559403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="993" y="245" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604510715855" />
+    <state x="1063" y="230" width="846" height="521" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604694559403" />
     <state x="437" y="153" key="AndroidThemeDialog" timestamp="1604509774233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="437" y="153" key="AndroidThemeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604509774233" />
-    <state x="751" y="11" key="CommitChangelistDialog2" timestamp="1604690076886">
+    <state x="869" y="0" key="CommitChangelistDialog2" timestamp="1604690559548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="751" y="11" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604690076886" />
-    <state x="1117" y="178" key="FileChooserDialogImpl" timestamp="1604507564979">
+    <state x="869" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1604690559548" />
+    <state x="1117" y="178" key="FileChooserDialogImpl" timestamp="1604699040950">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1117" y="178" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604507564979" />
+    <state x="1117" y="178" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604699040950" />
     <state width="1863" height="266" key="GridCell.Tab.0.bottom" timestamp="1604509323509">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -322,14 +343,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="642" y="77" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604506072380" />
-    <state x="742" y="186" key="Vcs.Push.Dialog.v2" timestamp="1604690080208">
+    <state x="742" y="186" key="Vcs.Push.Dialog.v2" timestamp="1604690580127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="742" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604690080208" />
+    <state x="742" y="186" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604690580127" />
     <state x="1177" y="262" key="chooseDestDirectoryDialog" timestamp="1604690307299">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1177" y="262" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604690307299" />
+    <state x="976" y="267" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog" timestamp="1604692255337">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="976" y="267" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604692255337" />
     <state x="1086" y="241" key="git4idea.merge.GitPullDialog" timestamp="1604506749788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
