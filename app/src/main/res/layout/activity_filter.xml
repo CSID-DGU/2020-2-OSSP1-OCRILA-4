@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".FilterActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="425dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="ALLERGY"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/cgAllergy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a1"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="난류"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a2"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="우유"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a3"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="메밀"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a4"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="땅콩"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a5"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="대두"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a6"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="밀"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a7"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="고등어"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a8"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="게"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a9"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="새우"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a10"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="돼지고기"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a11"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="복숭아"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a12"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="토마토"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a13"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="아황산류"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a14"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="호두"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a15"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="닭고기"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a16"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="잣"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a17"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="오징어"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a18"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="소고기"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_a19"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="조개류"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+
+    <Button
+        android:id="@+id/bntApply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="apply"
+        app:backgroundTint="@color/colorAccent" />
+
+</LinearLayout>
