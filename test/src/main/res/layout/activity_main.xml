@@ -10,8 +10,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="12dp"
-        android:onClick="onSelectImageClick"
+        android:onClick="onSelectImageClick_camera"
         android:text="Start Activity"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="12dp"
+        android:onClick="onSelectImageClick_gallery"
+        android:text="Pick from Gallery"/>
 
     <ImageView
         android:id="@+id/quick_start_cropped_image"
