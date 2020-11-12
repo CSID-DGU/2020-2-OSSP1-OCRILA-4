@@ -21,6 +21,9 @@ import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
   static final int REQUEST_SAVE_IMAGE = 213;
   String mCurrentPhotoPath;
   boolean album = false;
+  Uri albumURI = null;
 
 
   @Override
@@ -57,17 +61,18 @@ public class MainActivity extends AppCompatActivity {
     startActivityForResult(Intent.createChooser(intent,"Select Picture"), REQUEST_TAKE_PHOTO);
   }
 
-  private File makeStorageFolder() throws IOException {
-    String imageFileName = "tmp_"+String.valueOf(System.currentTimeMillis())+".jpg";
-    File storageDir = new File(Environment.getExternalStorageDirectory(),imageFileName);
-    mCurrentPhotoPath = storageDir.getAbsolutePath();
-    return storageDir;
+  private File createImageFile() throws IOException{
+    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+    String imageFileName = "JPEG_"+timeStamp+"_";
+    File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+    File image = File.createTempFile(imageFileName,".jpg",storageDir);
+    mCurrentPhotoPath = image.getAbsolutePath();
+    return image;
   }
 
   @RequiresApi(api = Build.VERSION_CODES.M)
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    // handle result of CropImageActivity
     if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
       CropImage.ActivityResult result = CropImage.getActivityResult(data);
       if (resultCode == RESULT_OK) {
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(
                 this, "Cropping successful, Sample: " + result.getSampleSize(), Toast.LENGTH_LONG)
             .show();
+
       } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
         Toast.makeText(this, "Cropping failed: " + result.getError(), Toast.LENGTH_LONG).show();
       }
