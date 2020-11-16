@@ -27,7 +27,7 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        img=(ImageView)findViewById(R.id.imageView2);
+        img=(ImageView)findViewById(R.id.Gallery_iv);
         btn=(Button)findViewById(R.id.button);
         //init();
 
@@ -53,7 +53,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     private void init(){
-        this.img=findViewById(R.id.imageView2);
+        this.img=findViewById(R.id.Gallery_iv);
     }
 
     @Override
@@ -73,7 +73,9 @@ public class GalleryActivity extends AppCompatActivity {
             Uri imageUriResultCrop = UCrop.getOutput(data);
 
             if(imageUriResultCrop!=null){
+                img.setImageURI(null);
                 img.setImageURI(imageUriResultCrop);
+                img.invalidate();
             }
 
         }
