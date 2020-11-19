@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +20,8 @@ import java.io.File;
 public class GalleryActivity extends AppCompatActivity {
 
     private ImageView img;
-    private Button btn;
+    private Button btn_gallery_gallery;
+    private  Button btn_gallery_result;
     private final int CODE_IMG_GALLERY=1;
     private final String SAMPLE_CROPPED_IMG_NAME="SampleCrop";
 
@@ -28,15 +30,26 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
         img=(ImageView)findViewById(R.id.Gallery_iv);
-        btn=(Button)findViewById(R.id.button);
+        btn_gallery_gallery =(Button)findViewById(R.id.btn_gallery_gallery);
+        btn_gallery_result =(Button)findViewById(R.id.bnt_gallery_result);
         //init();
 
-        btn.setOnClickListener(new View.OnClickListener(){
+        btn_gallery_gallery.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 startActivityForResult(new Intent().
                         setAction(Intent.ACTION_GET_CONTENT)
                         .setType("image/*"),CODE_IMG_GALLERY);
+                Toast.makeText(GalleryActivity.this, "원재료 분석표에 맞춰서 사진을 잘라주세요.", Toast.LENGTH_LONG).show();
+            }
+
+        });
+
+        btn_gallery_result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (getApplicationContext(),GalleryresultActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -122,9 +135,6 @@ public class GalleryActivity extends AppCompatActivity {
 
         return options;
     }
-
-
-
 
 
 

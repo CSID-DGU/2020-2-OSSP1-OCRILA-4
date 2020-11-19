@@ -23,6 +23,7 @@
         <activity android:name=".NoCautionDiseaseListActivity"/>
         <activity android:name=".CameraActivity"/>
         <activity android:name=".GalleryActivity"/>
+        <activity android:name=".GalleryresultActivity"/>
         <activity android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
