@@ -1,17 +1,13 @@
-package com.example.myapplication;
+package com.example.ocrlia;
 
 import android.os.Bundle;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CameraActivity extends AppCompatActivity {
-
-
+public class NoCautionDiseaseListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
+        setContentView(R.layout.activity_nocautiondiseaselist);
     }
-
 }
