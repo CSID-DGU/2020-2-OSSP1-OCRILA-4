@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/quick_start_cropped_image"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout android:layout_height="50dp"
+        android:layout_width="match_parent">
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="onSelectImageClick_camera"
+        android:text="촬영" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="5"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:textColor="@color/colorPrimaryDark"
+        android:onClick="toMainClick"
+        android:text="뒤로가기" />
+    />
+
+    </LinearLayout>
+
+</LinearLayout>
