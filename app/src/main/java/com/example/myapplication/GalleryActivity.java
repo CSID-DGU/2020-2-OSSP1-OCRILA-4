@@ -19,9 +19,10 @@ import java.io.File;
 
 public class GalleryActivity extends AppCompatActivity {
 
-    private ImageView img;
+    private ImageView Gallery_image_view;
     private Button btn_gallery_gallery;
     private  Button btn_gallery_result;
+    private  Button btn_gallery_reset;
     private final int CODE_IMG_GALLERY=1;
     private final String SAMPLE_CROPPED_IMG_NAME="SampleCrop";
 
@@ -29,9 +30,10 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        img=(ImageView)findViewById(R.id.Gallery_iv);
+        Gallery_image_view=(ImageView)findViewById(R.id.Gallery_image_view);
         btn_gallery_gallery =(Button)findViewById(R.id.btn_gallery_gallery);
-        btn_gallery_result =(Button)findViewById(R.id.bnt_gallery_result);
+        btn_gallery_result =(Button)findViewById(R.id.btn_gallery_result);
+        btn_gallery_reset = findViewById(R.id.btn_gallery_reset);
         //init();
 
         btn_gallery_gallery.setOnClickListener(new View.OnClickListener(){
@@ -52,6 +54,13 @@ public class GalleryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btn_gallery_result.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (getApplicationContext(),CameraResultActivity.class);
+                startActivity(intent);
+            }
+        });
 
         /*
         img.setOnClickListener(new View.OnClickListener(){
@@ -66,7 +75,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     private void init(){
-        this.img=findViewById(R.id.Gallery_iv);
+        this.Gallery_image_view=findViewById(R.id.Gallery_iv);
     }
 
     @Override
@@ -86,9 +95,9 @@ public class GalleryActivity extends AppCompatActivity {
             Uri imageUriResultCrop = UCrop.getOutput(data);
 
             if(imageUriResultCrop!=null){
-                img.setImageURI(null);
-                img.setImageURI(imageUriResultCrop);
-                img.invalidate();
+                Gallery_image_view.setImageURI(null);
+                Gallery_image_view.setImageURI(imageUriResultCrop);
+                Gallery_image_view.invalidate();
             }
 
         }
