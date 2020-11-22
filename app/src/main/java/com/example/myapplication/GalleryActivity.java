@@ -137,8 +137,8 @@ public class GalleryActivity extends AppCompatActivity {
         options.setFreeStyleCropEnabled(true);
 
         //Colors
-        options.setStatusBarColor(getResources().getColor(R.color.design_default_color_primary_dark));
-        options.setToolbarColor(getResources().getColor(R.color.design_default_color_primary));
+        options.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+        options.setToolbarColor(getResources().getColor(R.color.colorPrimary));
 
         options.setToolbarTitle("Cropper");
 
