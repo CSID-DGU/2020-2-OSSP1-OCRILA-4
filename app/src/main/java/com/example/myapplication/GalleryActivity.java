@@ -47,13 +47,13 @@ public class GalleryActivity extends AppCompatActivity {
 
         });
 
-        btn_gallery_result.setOnClickListener(new View.OnClickListener() {
+        btn_gallery_reset.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (getApplicationContext(),GalleryresultActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                Gallery_image_view.setImageBitmap(null);
             }
         });
+
         btn_gallery_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
