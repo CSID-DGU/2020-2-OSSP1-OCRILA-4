@@ -1,0 +1,31 @@
+ private static String convertResponseToString(BatchAnnotateImagesResponse response) {
+        StringBuilder message = new StringBuilder("글자를 인식하지 못하였습니다.\n\n");
+
+        List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
+        if (labels != null) {
+            for (EntityAnnotation label : labels) {
+                message.append(String.format(Locale.US, "%.3f: %s", label.getScore(), label.getDescription()));
+                message.append("\n");
+            }
+        } else {
+            message.append("nothing");
+        }
+
+        return message.toString();
+    }
+
+
+//에서
+
+    private static String convertResponseToString(BatchAnnotateImagesResponse response) {
+        String message = "I found these things:\n\n";
+        List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
+        if (labels != null) {
+            message  = labels.get(0).getDescription();
+        } else {
+            message  = "nothing";
+        }
+        return message;
+    }
+
+//으로 바꿨습니다. 바꾼이유. nul 및 이상한 글자를 출력하지 않기 위하여
