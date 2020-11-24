@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.myapplication.model.Allergy;
+import com.example.myapplication.model.Disease;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,19 +69,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // 질병 튜플 update문 (isChecked만 바꿔주는)
-    public boolean updateDisease(String disease) { // 파라미터 -검색 단위? 질병이름으로? [확인 필요]
+
+    /*
+        이 부분을 잘 모르겠는게, 디지즈 테이블의 최소성을 보장하는 것은 id임.
+        disease 속성이 최소성을 보장하지 못한다면, 위 update문에서 에러가 발생하지 않을까 싶음
+
+        우리가 구현할 메소드의 목적 => select를 다 한다음에, 그 isCheck 바꿔주는 것.
+        isCheck 바꿔주는 것 = updateDisease() 메소드가 필요한 이유!
+     */
+
+    // 디지즈 튜플 checked를 1으로 update
+    public boolean updateDiseaseToTrue(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("isChecked", 1);
 
         // updating row
-        return db.update(TABLE_DISEASE, values, "disease=" + disease, null) >0;
+        return db.update(TABLE_DISEASE, values, "id=" + id, null) >0;
+    }
 
-        /*
-        이 부분을 잘 모르겠는게, 디지즈 테이블의 최소성을 보장하는 것은 id임.
-        disease 속성이 최소성을 보장하지 못한다면, 위 update문에서 에러가 발생하지 않을까 싶음
-         */
+    // 디지즈 튜플 checked를 0으로 update
+    public boolean updateDiseaseToFalse(Integer id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("isChecked", 0);
+
+        // updating row
+        return db.update(TABLE_DISEASE, values, "id=" + id, null) >0;
     }
 
     // 알러지 튜플 insert문
@@ -94,8 +113,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    // 알러지 튜플 update문
-    public boolean updateAllergy(String allergy) {
+    // 알러지 튜플 checked를 1으로 update
+    public boolean updateAllergyToTrue(String allergy) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -105,16 +124,127 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.update(TABLE_DISEASE, values, "allergy=" + allergy, null) >0;
     }
 
+    // 알러지 튜플 checked를 0으로 update
+    public boolean updateAllergyToFalse(String allergy) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("isChecked", 0);
+
+        // updating row
+        return db.update(TABLE_DISEASE, values, "allergy=" + allergy, null) >0;
+    }
+
 
     // 모든 질병을 List로 내놓으면 될까? hashMap 자료형 형태가 괜찮으려나? 잘 모르겄네
     // https://gist.github.com/fazlurr/6a4f7e99ab6aa9078903 참고
+    
+   // 자료형별로 에제에서는 클래스를 정의해서 만들었는데 우리도 그렇게 해야될 것 같기도 하고
 
-    자료형별로 에제에서는 클래스를 정의해서 만들었는데 우리도 그렇게 해야될 것 같기도 하고
 
-    public List<String> getAllDisease(){
-        List<String> diseaseList = new ArrayList<String>();
+// 제대로 동작하려는 지 모르겠네요. setDrug와 같은 부분에서 문제 생길 수도 있을 것 같은데 테스트 필요
+    public List<Disease> getAllDisease() {
+        List<Disease> diseases = new ArrayList<Disease>();
 
         String selectQuery = "SELECT  * FROM " + TABLE_DISEASE;
 
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Disease td = new Disease();
+                td.setId(c.getInt((c.getColumnIndex("id"))));
+                td.setDisease((c.getString(c.getColumnIndex("disease"))));
+                td.setFood_name(c.getString(c.getColumnIndex("food_name")));
+                td.setDrug(c.getString(c.getColumnIndex("drug")));
+                td.setIsChecked(c.getInt((c.getColumnIndex("isChecked"))));
+
+                // adding to todo list
+                diseases.add(td);
+            } while (c.moveToNext());
+        }
+
+        return diseases;
     }
+
+
+
+    // 제대로 동작하려는 지 모르겠네요. setDrug와 같은 부분에서 문제 생길 수도 있을 것 같은데 테스트 필요
+    public List<Allergy> getAllAllergy() {
+        List<Allergy> allergys = new ArrayList<Allergy>();
+        String selectQuery = "SELECT  * FROM " + TABLE_ALLERGY;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Allergy t = new Allergy();
+                t.setAllergy(c.getString(c.getColumnIndex("allergy")));
+                t.setIsChecked(c.getInt(c.getColumnIndex("isChecked")));
+
+                // adding to tags list
+                allergys.add(t);
+            } while (c.moveToNext());
+        }
+        return allergys;
+    }
+
 }
+
+// 이 클래스는 단순하게
+// db정의, insert 기본동작, update기본동작, getAll..  4가지 동작하는 거고
+
+
+// 다른 클래스를 만들어서, 위 4가지를 활용해서, 우리가 원하는 비지니스로직을 구현하는 메소드를 넣는거죠.
+
+// DatabaseUses 클래스 만듬 (DatabaseHelper 클래스에서 정의한 메소드를 이용해서, 활용하는 클래스)
+
+/*
+활용
+
+우리가 필요한 것 :
+
+[1] update문을 활용하는, isChekced 바꾸기 메소드
+
+1. select를 전부해줘서,  btn_disease_ADHD.isChecked() 가 true인 것을 찾고
+
+2. 근데, 고유한 값인 id는 전부 다른데, 같은 질병이 있는거죠. (여기서 문제가 발생)
+
+3. 이 경우에, 1가지 버튼인데, 여러가지 DB 튜플이 존재한다.
+
+해결방법
+
+:
+1.디지즈 테이블의  정의 바꾼다.
+2. 이것을 로직으로 처리한다.
+
+(2) 로직으로 처리할 경우에는,
+같은 질병이 여러가지가 아이디가 검색 될 경우, 전부다 isChecked update를 바꿔주는 logic
+
+
+
+
+ */
+
+
+
+
+
+
+
+/*
+11월 24일 인식한 [문제점]
+
+1. 디지즈 테이블 정의가 우리가 활용하기에 좀 애매하다.=> 로직으로 처리 결정
+
+
+
+
+
+
+ */
