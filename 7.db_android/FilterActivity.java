@@ -173,46 +173,46 @@ public class FilterActivity extends AppCompatActivity {
         });
 
 
-
-        //DB 부분
-        mDb = new DatabaseHelper(this);
-
-        // 테스트
-        mDb.insertDisease("감기", "사과", "감기약A");
-        mDb.insertDisease("감기", "사과", "감기약B");
-        mDb.insertDisease("감기", "사과", "감기약C");
-        mDb.insertDisease("감기", "사과", "감기약D");
-
-        mDb.insertAllergy("땅콩알러지");
-        mDb.insertAllergy("사과알러지");
-        mDb.insertAllergy("고기알러지");
-
-        List<Allergy> alist = mDb.getAllAllergy();
-        List<Disease> dlist = mDb.getAllDisease();
-
-        for(Disease disease : dlist) {
-            int i=0;
-            Log.v("db태그" + i +"번째", disease.getDisease());
-            Log.v("db태그" + i+"번째", disease.getDrug());
-            Log.v("db태그" + i +"번째", Integer.toString(disease.getIsChecked()));
-            i++;
-        }
-
-        mDb.updateDiseaseToTrue(1);
-        mDb.updateDiseaseToTrue(2);
-        mDb.updateDiseaseToTrue(3);
-
-        int i=0;
-        for(Disease disease : dlist) {
-            Log.v("db태그" + i +"번째", disease.getDisease());
-            Log.v("db태그" + i+"번째", disease.getDrug());
-            Log.v("db태그" + i +"번째", Integer.toString(disease.getIsChecked()));
-            i++;
-        }
-
-        for(Allergy allergy : alist) {
-            Log.v("db태그", allergy.getAllergy());
-        }
+//
+//        //DB 부분
+//        mDb = new DatabaseHelper(this);
+//
+//        // 테스트
+//        mDb.insertDisease("감기", "사과", "감기약A");
+//        mDb.insertDisease("감기", "사과", "감기약B");
+//        mDb.insertDisease("감기", "사과", "감기약C");
+//        mDb.insertDisease("감기", "사과", "감기약D");
+//
+//        mDb.insertAllergy("땅콩알러지");
+//        mDb.insertAllergy("사과알러지");
+//        mDb.insertAllergy("고기알러지");
+//
+//        List<Allergy> alist = mDb.getAllAllergy();
+//        List<Disease> dlist = mDb.getAllDisease();
+//
+//        for(Disease disease : dlist) {
+//            int i=0;
+//            Log.v("db태그" + i +"번째", disease.getDisease());
+//            Log.v("db태그" + i+"번째", disease.getDrug());
+//            Log.v("db태그" + i +"번째", Integer.toString(disease.getIsChecked()));
+//            i++;
+//        }
+//
+//        mDb.updateDiseaseToTrue(1);
+//        mDb.updateDiseaseToTrue(2);
+//        mDb.updateDiseaseToTrue(3);
+//
+//        int i=0;
+//        for(Disease disease : dlist) {
+//            Log.v("db태그" + i +"번째", disease.getDisease());
+//            Log.v("db태그" + i+"번째", disease.getDrug());
+//            Log.v("db태그" + i +"번째", Integer.toString(disease.getIsChecked()));
+//            i++;
+//        }
+//
+//        for(Allergy allergy : alist) {
+//            Log.v("db태그", allergy.getAllergy());
+//        }
 
     }
 
