@@ -61,15 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
             appPreference.setFirstRun(false); // false로 바꿈
         }
-
-
-
-
-
-
-
-
-
     }
 
     @Override

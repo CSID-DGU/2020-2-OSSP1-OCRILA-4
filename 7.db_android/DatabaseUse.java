@@ -4,7 +4,7 @@ import android.content.Context;
 
 public class DatabaseUse {
 
-    static DatabaseHelper mDb;
+    DatabaseHelper mDb;
 
     void firstInsert(Context context) {
         //DB 부분
@@ -596,6 +596,8 @@ public class DatabaseUse {
         mDb.insertAllergy("오징어");
         mDb.insertAllergy("잣");
         mDb.insertAllergy("조개류");
+
+        mDb.close();
     }
 
 }

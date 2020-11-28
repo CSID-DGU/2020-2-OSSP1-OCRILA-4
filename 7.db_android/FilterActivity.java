@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,13 +38,14 @@ public class FilterActivity extends AppCompatActivity {
     private ArrayList<String> selectedChipsData;
 
 
-    private DatabaseHelper mDb;
+    public DatabaseHelper mDb;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
+
 
         btn_allergy_nanlyu = findViewById(R.id.btn_allergy_nanlyu);
         btn_allergy_uyu = findViewById(R.id.btn_allergy_uyu);
@@ -85,17 +87,65 @@ public class FilterActivity extends AppCompatActivity {
 
         Button btn_no_caution_disease_list = findViewById(R.id.btn_no_caution_disease_list);
 
+        mDb = new DatabaseHelper(this); // DB를 제어하는 객체 생성
 
         selectedChipsData = new ArrayList<>();
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    selectedChipsData.add(buttonView.getText().toString());
+
+                String[] allergy = {"난류", "우유", "메밀", "땅콩", "대두", "밀"
+                        , "고등어", "게", "새우", "돼지고기", "복숭아", "토마토", "아황산류"
+                , "호두", "닭고기", "소고기", "오징어", "잣", "조개류"};
+
+                if (isChecked) {  // 1. 체크된 경우
+                    //  selectedChipsData.add(buttonView.getText().toString());
+                    String preText = buttonView.getText().toString();
+                    boolean isAllergy = false;
+                    for(int j=0; j < allergy.length; j++) { // 알러지 배열과 비교해서 알러지에 분류나눔
+                        if (preText.equals(allergy[j])) {
+                            isAllergy = true;
+                            break;
+                        }
+                    }
+
+                    if(isAllergy) { // 알러지인 경우
+                        mDb.updateAllergyToTrue(preText); // isChecked를 1로 변경
+
+                    }
+
+                    else { // 알러지가 아닌 경우 , 이 경우는 int id로 검색해야되기 때문에 로직이 길어짐.
+                        List<Disease> dlist = mDb.getDisease(preText); // 해당 텍스트에 해당하는 디지즈 객체를 다 불러와서
+                        for(Disease disease : dlist) { // 하나하나 전부 true로 바꿔준다.
+                            int disease_id = disease.getId();
+                            mDb.updateDiseaseToTrue(disease_id );
+                        }
+                    }
+
                 }
-                else{
-                    selectedChipsData.remove(buttonView.getText().toString());
+                else{ // chip이 체크되지 않은 경우,
+
+                    boolean isAllergy = false;
+                    String preText = buttonView.getText().toString();
+
+                    for(int j=0; j < allergy.length; j++) { // 알러지 배열과 비교해서 알러지에 분류나눔
+                        if (preText.equals(allergy[j])) {
+                            isAllergy = true;
+                            break;
+                        }
+                    }
+                    if(isAllergy) { // 알러지인 경우
+                        mDb.updateAllergyToFalse(preText); // isChecked를 0로 변경
+                    }
+
+                    else { // 알러지가 아닌 경우 , 이 경우는 int id로 검색해야되기 때문에 로직이 길어짐.
+                        List<Disease> dlist = mDb.getDisease(preText); // 해당 텍스트에 해당하는 디지즈 객체를 다 불러와서
+                        for(Disease disease : dlist) { // 하나하나 전부 true로 바꿔준다.
+                            int disease_id = disease.getId();
+                            mDb.updateDiseaseToFalse(disease_id );
+                        }
+                    }
                 }
             }
         };
@@ -166,54 +216,107 @@ public class FilterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent resultIntent = new Intent();
+
                 resultIntent.putExtra("data", selectedChipsData.toString());
                 setResult(101,resultIntent);
                 finish();
             }
         });
 
+        // 레이아웃 로드시, chip에 체크해주는 기능
 
-//
-//        //DB 부분
-//        mDb = new DatabaseHelper(this);
-//
-//        // 테스트
-//        mDb.insertDisease("감기", "사과", "감기약A");
-//        mDb.insertDisease("감기", "사과", "감기약B");
-//        mDb.insertDisease("감기", "사과", "감기약C");
-//        mDb.insertDisease("감기", "사과", "감기약D");
-//
-//        mDb.insertAllergy("땅콩알러지");
-//        mDb.insertAllergy("사과알러지");
-//        mDb.insertAllergy("고기알러지");
-//
-//        List<Allergy> alist = mDb.getAllAllergy();
-//        List<Disease> dlist = mDb.getAllDisease();
-//
-//        for(Disease disease : dlist) {
-//            int i=0;
-//            Log.v("db태그" + i +"번째", disease.getDisease());
-//            Log.v("db태그" + i+"번째", disease.getDrug());
-//            Log.v("db태그" + i +"번째", Integer.toString(disease.getIsChecked()));
-//            i++;
-//        }
-//
-//        mDb.updateDiseaseToTrue(1);
-//        mDb.updateDiseaseToTrue(2);
-//        mDb.updateDiseaseToTrue(3);
-//
-//        int i=0;
-//        for(Disease disease : dlist) {
-//            Log.v("db태그" + i +"번째", disease.getDisease());
-//            Log.v("db태그" + i+"번째", disease.getDrug());
-//            Log.v("db태그" + i +"번째", Integer.toString(disease.getIsChecked()));
-//            i++;
-//        }
-//
-//        for(Allergy allergy : alist) {
-//            Log.v("db태그", allergy.getAllergy());
-//        }
+        List<Chip> aChipList = new ArrayList<Chip>();
+
+        aChipList.add(btn_allergy_nanlyu);
+        aChipList.add(btn_allergy_uyu);
+        aChipList.add(btn_allergy_memil);
+        aChipList.add(btn_allergy_ttangkong);
+        aChipList.add(btn_allergy_daedu);
+        aChipList.add(btn_allergy_mil);
+        aChipList.add(btn_allergy_godeungeo);
+        aChipList.add(btn_allergy_ge);
+        aChipList.add(btn_allergy_saeu);
+        aChipList.add(btn_allergy_dqaejigogi);
+        aChipList.add(btn_allergy_bogsunga);
+        aChipList.add(btn_allergy_tomato);
+        aChipList.add(btn_allergy_ahwangsanlyu);
+        aChipList.add(btn_allergy_hodu);
+        aChipList.add(btn_allergy_dalggogi);
+        aChipList.add(btn_allergy_jas);
+        aChipList.add(btn_allergy_ojingeo);
+        aChipList.add(btn_allergy_sogogi);
+        aChipList.add(btn_allergy_jogaelyu);
+
+
+        List<Chip> dChipList = new ArrayList<Chip>();
+
+        dChipList.add(btn_disease_COPD);
+        dChipList.add(btn_disease_tuberculosis);
+        dChipList.add(btn_disease_enteritis);
+        dChipList.add(btn_disease_fattyliver);
+        dChipList.add(btn_disease_crohn);
+        dChipList.add(btn_disease_hepatitis);
+        dChipList.add(btn_disease_highbloodpressure);
+        dChipList.add(btn_disease_angina);
+        dChipList.add(btn_disease_CABG);
+        dChipList.add(btn_disease_cardiac_infarction);
+        dChipList.add(btn_disease_sugar_diabetes);
+        dChipList.add(btn_disease_obesity);
+        dChipList.add(btn_disease_leukemia);
+        dChipList.add(btn_disease_epilepsy);
+        dChipList.add(btn_disease_cerebral);
+        dChipList.add(btn_disease_cerebromeningitis);
+        dChipList.add(btn_disease_osteoporosis);
+        dChipList.add(btn_disease_gout);
+        dChipList.add(btn_disease_cystitis);
+        dChipList.add(btn_disease_incontinence);
+        dChipList.add(btn_disease_allergic_coryza);
+        dChipList.add(btn_disease_inflammation_middle_ear);
+        dChipList.add(btn_disease_depression);
+        dChipList.add(btn_disease_insomnia);
+        dChipList.add(btn_disease_dementia);
+        dChipList.add(btn_disease_panic);
+        dChipList.add(btn_disease_schizophrenia);
+        dChipList.add(btn_disease_bipolar);
+        dChipList.add(btn_disease_ADHD);
+        dChipList.add(btn_disease_posttraumatic_stress);
+        dChipList.add(btn_disease_bladder_cancer);
+        dChipList.add(btn_disease_bloodpoisoning);
+
+
+        // 1. isChecked가 1인 된 튜플을 가져온다.
+        List<Allergy> aList = mDb.getAllAllergy();
+        List<Disease> dList = mDb.getAllDisease();
+
+        for(Allergy a : aList) {
+            if (a.getIsChecked() == 1) {
+                for(int i=0; i < aChipList.size(); i++) {
+                    if(a.getAllergy().equals(aChipList.get(i).getText().toString())) {
+                        aChipList.get(i).setChecked(true);
+                    }
+                }
+            }
+        }
+
+        for(Disease d : dList) {
+            if (d.getIsChecked() == 1) {
+                for (int i = 0; i < dChipList.size(); i++) {
+                    if (d.getDisease().equals(dChipList.get(i).getText().toString())) {
+                        dChipList.get(i).setChecked(true);
+                    }
+                }
+            }
+        }
+
+
 
     }
+
+
+
+
+
+
+
 
 }
