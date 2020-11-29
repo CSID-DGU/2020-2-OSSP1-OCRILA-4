@@ -12,7 +12,7 @@ Project is created with:
 * tesseract version: 0.1.3
 * Android-Image-Cropper	
 
-#GRADLE SETTINGS
+## GRADLE SETTINGS
 implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
