@@ -74,7 +74,6 @@ public class FilterActivity extends AppCompatActivity {
         btn_disease_ADHD = findViewById(R.id.btn_disease_ADHD);              btn_disease_posttraumatic_stress = findViewById(R.id.btn_disease_posttraumatic_stress);
         btn_disease_bladder_cancer = findViewById(R.id.btn_disease_bladder_cancer);        btn_disease_bloodpoisoning = findViewById(R.id.btn_disease_bloodpoisoning);
 
-        Button btn_no_caution_disease_list = findViewById(R.id.btn_no_caution_disease_list);
 
 
         selectedChipsData = new ArrayList<>();
@@ -143,22 +142,13 @@ public class FilterActivity extends AppCompatActivity {
         btn_disease_bladder_cancer.setOnCheckedChangeListener(checkedChangeListener);
         btn_disease_bloodpoisoning.setOnCheckedChangeListener(checkedChangeListener);
 
-        btn_no_caution_disease_list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (getApplicationContext(),NoCautionDiseaseListActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         btnApply = findViewById(R.id.bntApply);
 
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("data", selectedChipsData.toString());
-                setResult(101,resultIntent);
                 finish();
             }
         });
