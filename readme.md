@@ -9,7 +9,7 @@ OCR 라이브러리를 이용한 가공식품 원재료명 분석 어플
 ## Technologies
 Project is created with:
 * Android Studio version: 4.1
-* tesseract version: 0.1.3
+* google cloud vision
 * Android-Image-Cropper	
 
 ## GRADLE SETTINGS
