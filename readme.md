@@ -13,6 +13,25 @@ Project is created with:
 * Android-Image-Cropper	
 
 ## GRADLE SETTINGS
+
+build.gradle(Project)
+
+	allprojects {
+	    repositories {
+		google()
+		jcenter()
+		mavenCentral()
+		maven { url "https://jitpack.io"
+		}
+		maven {
+		    url 'https://maven.google.com/'
+		    name 'Google'
+		}
+	    }
+	}
+
+build.gradle(Module)
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
