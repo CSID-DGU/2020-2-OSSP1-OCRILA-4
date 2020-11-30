@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.Chip.Filter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".FilterActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_weight="0"
+        android:text="ALLERGY"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/categoryAllergy"
+            android:layout_width="match_parent"
+            android:layout_height="206dp"
+            android:layout_weight="1">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_nanlyu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="난류"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_uyu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="우유"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_memil"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="메밀"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_ttangkong"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="땅콩"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_daedu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="대두"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_mil"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="밀"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_godeungeo"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="고등어"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_ge"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="게"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_saeu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="새우"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_dqaejigogi"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="돼지고기"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_bogsunga"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="복숭아"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_tomato"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="토마토"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_ahwangsanlyu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="아황산류"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_hodu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="호두"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_dalggogi"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="닭고기"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_jas"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="잣"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_ojingeo"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="오징어"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_sogogi"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="소고기"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_allergy_jogaelyu"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="조개류"
+                app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_weight="0"
+        android:text="DISEASE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/Disease_chipgroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_COPD"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="만성폐쇄성질환"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_tuberculosis"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="결핵"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_enteritis"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="장염"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_fattyliver"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="지방간"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_crohn"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="크론병"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_hepatitis"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="간염"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_highbloodpressure"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="고혈압"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_angina"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="협심증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_CABG"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="관상동맥 우회술"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_cardiac_infarction"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="심근경색증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_sugar_diabetes"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="당뇨병"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_obesity"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="비만"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_leukemia"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="백혈병"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_epilepsy"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="뇌전증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_cerebral"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="뇌경색"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_cerebromeningitis"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="뇌수막염"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_osteoporosis"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="골다공증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_gout"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="통풍"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_cystitis"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="방광염"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_incontinence"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="요실금"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_allergic_coryza"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="비염"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_inflammation_middle_ear"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="중이염"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_depression"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="우울증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_insomnia"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="불면증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_dementia"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="치매"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_panic"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="공황장애"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_schizophrenia"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="조현병"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_bipolar"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="조울증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_ADHD"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="ADHD"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_posttraumatic_stress"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="외상 후 스트레스 장애"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_bladder_cancer"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="방광암"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/btn_disease_bloodpoisoning"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="패혈증"
+            app:chipBackgroundColor="@color/colorPrimaryDark" />
+
+    </com.google.android.material.chip.ChipGroup>
+    </ScrollView>
+
+        <Button
+            android:id="@+id/bntApply"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:text="apply"
+            app:backgroundTint="@color/colorAccent" />
+
+</LinearLayout>
