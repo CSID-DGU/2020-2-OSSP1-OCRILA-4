@@ -126,47 +126,47 @@ public class DatabaseUse {
         mDb.insertDisease("협심증", "자몽", "일성이솦틴서방정180mg");
         mDb.insertDisease("협심증", "자몽", "아달라트연질캡슐5mg");
 
-        mDb.insertDisease("관상동맥우회술", "비타민E", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "비타민E", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "비타민E", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "비타민E", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "비타민E", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "비타민E", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "비타민E", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "비타민E", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "비타민E", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "비타민E", "휴로픽스정");
 
-        mDb.insertDisease("관상동맥우회술", "비타민A", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "비타민A", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "비타민A", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "비타민A", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "비타민A", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "비타민A", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "비타민A", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "비타민A", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "비타민A", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "비타민A", "휴로픽스정");
 
-        mDb.insertDisease("관상동맥우회술", "녹차", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "녹차", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "녹차", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "녹차", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "녹차", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "녹차", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "녹차", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "녹차", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "녹차", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "녹차", "휴로픽스정");
 
-        mDb.insertDisease("관상동맥우회술", "마늘", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "마늘", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "마늘", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "마늘", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "마늘", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "마늘", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "마늘", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "마늘", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "마늘", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "마늘", "휴로픽스정");
 
-        mDb.insertDisease("관상동맥우회술", "생강", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "생강", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "생강", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "생강", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "생강", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "생강", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "생강", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "생강", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "생강", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "생강", "휴로픽스정");
 
-        mDb.insertDisease("관상동맥우회술", "인삼", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "인삼", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "인삼", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "인삼", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "인삼", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "인삼", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "인삼", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "인삼", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "인삼", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "인삼", "휴로픽스정");
 
-        mDb.insertDisease("관상동맥우회술", "은행엽", "케라픽스정");
-        mDb.insertDisease("관상동맥우회술", "은행엽", "그로리정");
-        mDb.insertDisease("관상동맥우회술", "은행엽", "로피렐정");
-        mDb.insertDisease("관상동맥우회술", "은행엽", "세레나데정");
-        mDb.insertDisease("관상동맥우회술", "은행엽", "휴로픽스정");
+        mDb.insertDisease("관상동맥 우회술", "은행엽", "케라픽스정");
+        mDb.insertDisease("관상동맥 우회술", "은행엽", "그로리정");
+        mDb.insertDisease("관상동맥 우회술", "은행엽", "로피렐정");
+        mDb.insertDisease("관상동맥 우회술", "은행엽", "세레나데정");
+        mDb.insertDisease("관상동맥 우회술", "은행엽", "휴로픽스정");
 
         mDb.insertDisease("심근경색증", "자몽", "비티오니페디핀정20mg(수출용)");
         mDb.insertDisease("심근경색증", "알코올", "비티오니페디핀정20mg(수출용)");
@@ -553,17 +553,17 @@ public class DatabaseUse {
         mDb.insertDisease("ADHD", "카페인", "메타데이트CD서방캡슐10mg");
         mDb.insertDisease("ADHD", "카페인", "비스펜틴조절방출캡슐10mg");
 
-        mDb.insertDisease("PSTD", "알코올", "환인파록세틴정20mg");
-        mDb.insertDisease("PSTD", "알코올", "산도스설트랄린정");
-        mDb.insertDisease("PSTD", "알코올", "졸로푸트정50mg");
-        mDb.insertDisease("PSTD", "알코올", "파마설트랄린정50mg");
-        mDb.insertDisease("PSTD", "알코올", "영진설트랄린정50mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "알코올", "환인파록세틴정20mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "알코올", "산도스설트랄린정");
+        mDb.insertDisease("외상 후 스트레스 장애", "알코올", "졸로푸트정50mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "알코올", "파마설트랄린정50mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "알코올", "영진설트랄린정50mg");
 
-        mDb.insertDisease("PSTD", "카페인", "환인파록세틴정20mg");
-        mDb.insertDisease("PSTD", "카페인", "산도스설트랄린정");
-        mDb.insertDisease("PSTD", "카페인", "졸로푸트정50mg");
-        mDb.insertDisease("PSTD", "카페인", "파마설트랄린정50mg");
-        mDb.insertDisease("PSTD", "카페인", "영진설트랄린정50mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "카페인", "환인파록세틴정20mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "카페인", "산도스설트랄린정");
+        mDb.insertDisease("외상 후 스트레스 장애", "카페인", "졸로푸트정50mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "카페인", "파마설트랄린정50mg");
+        mDb.insertDisease("외상 후 스트레스 장애", "카페인", "영진설트랄린정50mg");
 
         mDb.insertDisease("방광암", "알코올", "보령에피루비신염산염주(25mL)");
         mDb.insertDisease("방광암", "알코올", "에피진주50mg");
