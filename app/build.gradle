@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each {
+            it.buildConfigField 'String', 'API_KEY', '"AIzaSyDCyY64zrUdVTkBz_R7kozFEfpkpkH6vP8"'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -45,5 +48,17 @@ dependencies {
 
     api 'com.github.yalantis:ucrop:2.2.2'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.+'
+
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:27.0.2'
+    compile 'com.android.support:design:27.0.2'
+    compile 'com.google.api-client:google-api-client-android:1.23.0' exclude module: 'httpclient'
+    compile 'com.google.http-client:google-http-client-gson:1.23.0' exclude module: 'httpclient'
+    compile 'com.google.apis:google-api-services-vision:v1-rev369-1.23.0'
+    api 'com.github.yalantis:ucrop:2.2.2'
 
 }
