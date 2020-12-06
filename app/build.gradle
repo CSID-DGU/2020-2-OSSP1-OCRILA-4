@@ -22,7 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         buildTypes.each {
-            it.buildConfigField 'String', 'API_KEY', '"AIzaSyDCyY64zrUdVTkBz_R7kozFEfpkpkH6vP8"'
+            it.buildConfigField 'String', 'API_KEY', '"AIzaSyDJ2xCTqsHCtB90h0glEOcdh5ueUmyKP34"'
         }
     }
     compileOptions {
@@ -38,6 +38,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.navigation:navigation-fragment:2.3.1'
     implementation 'androidx.navigation:navigation-ui:2.3.1'
+    implementation files('..\\java-string-similarity-2.0.0.jar')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -60,5 +61,7 @@ dependencies {
     compile 'com.google.http-client:google-http-client-gson:1.23.0' exclude module: 'httpclient'
     compile 'com.google.apis:google-api-services-vision:v1-rev369-1.23.0'
     api 'com.github.yalantis:ucrop:2.2.2'
+
+    //implementation project(":java-string-similarity-2.0.0")
 
 }

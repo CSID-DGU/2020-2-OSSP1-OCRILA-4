@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,9 +51,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        // SharedPreferences 설정을 통한, DB insert문 실행
+        AppPreference appPreference = new AppPreference(MainActivity.this);
 
+        Boolean firstRun = appPreference.getFirstRun();
+        if(firstRun) { // 첫실행이면 아래 코드 실행
+            DatabaseUse dbUse = new DatabaseUse();
+            dbUse.firstInsert(getApplicationContext());
+
+            appPreference.setFirstRun(false); // false로 바꿈
+        }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
