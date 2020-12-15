@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.myapplication.GalleryActivity"
-    tools:showIn="@layout/activity_camera">
+    tools:context="com.example.myapplication.ResultActivity"
+    tools:showIn="@layout/activity_result">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,11 +22,23 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/camera_image_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text=""/>
+                android:visibility="invisible"
+                android:text="알레르기를 유발할 수 있는 성분"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginBottom="8dp"
+                android:text="같이 복용하면 안 되는 약물"/>
+            <TextView
+                android:id="@+id/result_image_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="" />
 
         </LinearLayout>
     </ScrollView>

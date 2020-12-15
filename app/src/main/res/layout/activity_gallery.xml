@@ -9,17 +9,6 @@
     android:padding="10dp"
     tools:context=".GalleryActivity">
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/gallery_content_main"
-        android:layout_width="396dp"
-        android:layout_height="317dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Gallery_image_view"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/Gallery_image_view"
