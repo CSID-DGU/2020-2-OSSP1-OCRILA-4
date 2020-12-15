@@ -1,15 +1,12 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         camera_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (getApplicationContext(),CameraActivity.class);
+                Intent intent = new Intent (getApplicationContext(), CameraActivity.class);
                 startActivity(intent);
             }
         });
@@ -45,23 +40,13 @@ public class MainActivity extends AppCompatActivity {
         gallery_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (getApplicationContext(),GalleryActivity.class);
+                Intent intent = new Intent (getApplicationContext(), GalleryActivity.class);
                 startActivity(intent);
             }
         });
 
 
 
-    }
-
-    @Override
-    protected void onActivityResult ( int requestCode, int resultCode, @Nullable Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 101) {
-            TextView textView = findViewById(R.id.Result);
-
-            textView.setText(data.getStringExtra("data"));
-        }
     }
 
 
