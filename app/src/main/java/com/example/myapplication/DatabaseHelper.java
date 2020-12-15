@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.myapplication.model.Allergy;
 import com.example.myapplication.model.Disease;
@@ -246,7 +247,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return diseasesList;
     }
 
-    public List<String> checkAllergy(List<String> textList) {
+    public  List<String> checkAllergy(List<String> textList) {
 
         String[] allAllergy = {"난류", "우유", "메밀", "땅콩", "대두", "밀", "고등어", "게", "새우",
                 "돼지고기", "복숭아", "토마토", "아황산류", "호두", "닭고기", "잣", "오징어", "소고기", "조개류"};
