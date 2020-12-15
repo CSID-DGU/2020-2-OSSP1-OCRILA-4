@@ -254,11 +254,11 @@ s1 : String from OCR
         // DB 부분작성
         DatabaseHelper mDb;
         mDb = new DatabaseHelper(this);
-        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
-        List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
+        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 알러지 리스트
+        List<Disease> dList = mDb.getAllDisease(); //검색할 질병 리스트
 
-        List<Allergy> aResultList = mDb.getAllAllergy(); // 검색된 값을 저장할 알러지 리스트
-        List<Disease> dResultList = mDb.getAllDisease(); //검색된 값을 저장할 질병 리스트
+        List<Allergy> aResultList = new ArrayList<Allergy>(); // 검색된 값을 저장할 알러지 리스트
+        List<Disease> dResultList = new ArrayList<Disease>(); //검색된 값을 저장할 질병 리스트
 
         List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
 
@@ -362,7 +362,6 @@ s1 : String from OCR
 
     //LCS 결과값에 따라 결과값 추출
     private ArrayList<String> Correction(String message){
-        //List<String> Food = Arrays.asList("카페인", "가다랑어", "자몽", "알코올", "니코틴", "자몽", "참치", "철분", "마그네슘", "생강", "마늘", "오렌지", "감초캔디", "칼륨", "아스파라거스", "민들레차", "칼슘", "녹차", "비타민E", "비타민A", "인삼", "은행엽", "감자", "민들레", "철분보충제", "마그네슘보충제", "탄산염제산제", "칼슘인", "아연", "구리", "제산제", "칼륨보충제", "멜라토닌", "사과", "오렌지", "계란", "우유", "메밀", "땅콩", "대두", "밀", "고등어", "게", "새우", "돼지고기", "복숭아", "토마토", "아황산류", "호두", "닭고기", "쇠고기", "오징어", "잣", "조개류");
 
         // DB 부분작성
         DatabaseHelper mDb;
@@ -370,8 +369,8 @@ s1 : String from OCR
         List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
         List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
 
-        List<Allergy> aResultList = mDb.getAllAllergy(); // 검색된 값을 저장할 알러지 리스트
-        List<Disease> dResultList = mDb.getAllDisease(); //검색된 값을 저장할 질병 리스트
+        List<Allergy> aResultList = new ArrayList<Allergy>(); // 검색된 값을 저장할 알러지 리스트
+        List<Disease> dResultList = new ArrayList<Disease>(); //검색된 값을 저장할 질병 리스트
 
         List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
 
