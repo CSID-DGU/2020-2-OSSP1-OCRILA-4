@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.myapplication.model.Allergy;
 import com.example.myapplication.model.Disease;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,8 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "isChecked INTEGER DEFAULT 0 );";
 
         //테이블 생성
-       db.execSQL(table_disease);
-       db.execSQL(table_allergy);
+        db.execSQL(table_disease);
+        db.execSQL(table_allergy);
 
     }
 
@@ -65,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_DISEASE, null, contentValues);
 
-       return result;
+        return result;
     }
 
     // 질병 튜플 update문 (isChecked만 바꿔주는)
@@ -187,6 +188,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allergys;
     }
 
+    //질병이름으로 해당 질병 객체를 검색해 가져오는 메소드
     public List<Disease> getDisease(String disease_name) {
 
         List<Disease> diseases = new ArrayList<Disease>();
@@ -213,4 +215,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return diseases;
     }
 
+
+    // 단어사전에서 받아온 list에서 해당 질병의 이름으로 질병을 검색하고 해당 질병 객체를 list에 넣는다.
+    public List<Disease> checkDisease(List<String> textList) {
+
+        List<Disease> diseasesList = new ArrayList<Disease>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        for (String disease_name : textList) {
+
+            String selectQuery = "SELECT  * FROM " + TABLE_DISEASE + " WHERE "
+                    + "disease" + " = " + "\"" + disease_name + "\"";
+
+            Cursor c = db.rawQuery(selectQuery, null);
+
+            if (c.moveToFirst()) {
+                do {
+                    Disease td = new Disease();
+                    td.setId(c.getInt((c.getColumnIndex("id"))));
+                    td.setDisease((c.getString(c.getColumnIndex("disease"))));
+                    td.setFood_name(c.getString(c.getColumnIndex("food_name")));
+                    td.setDrug(c.getString(c.getColumnIndex("drug")));
+                    td.setIsChecked(c.getInt((c.getColumnIndex("isChecked"))));
+
+                    // adding to
+                    diseasesList.add(td);
+                } while (c.moveToNext());
+            }
+        }
+        return diseasesList;
+    }
+
+    public List<String> checkAllergy(List<String> textList) {
+
+        String[] allAllergy = {"난류", "우유", "메밀", "땅콩", "대두", "밀", "고등어", "게", "새우",
+                "돼지고기", "복숭아", "토마토", "아황산류", "호두", "닭고기", "잣", "오징어", "소고기", "조개류"};
+
+        List<String> aList = new ArrayList<>();
+
+        for(int i=0; i < textList.size(); i++) {
+            for(int j=0; j < allAllergy.length; j++) {
+                if(textList.get(i).equals(allAllergy[j])) {
+                    aList.add(allAllergy[j]);
+                    break;
+                }
+            }
+        }
+        return aList;
+    }
 }
