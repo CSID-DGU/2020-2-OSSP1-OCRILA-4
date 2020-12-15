@@ -45,6 +45,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -70,6 +71,8 @@ public class GalleryActivity extends AppCompatActivity {
 
     private Uri imageUriResultCrop;
     private TextView tv_ocrResult;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,16 +81,19 @@ public class GalleryActivity extends AppCompatActivity {
         btn_gallery_gallery =(Button)findViewById(R.id.btn_gallery_gallery);
         btn_gallery_result =(Button)findViewById(R.id.btn_gallery_result);
         btn_gallery_reset = findViewById(R.id.btn_gallery_reset);
+
+
+
         btn_gallery_gallery.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                    Intent intent = new Intent();
-                    intent.setType("image/*");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(intent, "Select a photo"),
-                            GALLERY_IMAGE_REQUEST);
-                    Toast.makeText(GalleryActivity.this, "원재료 분석표에 맞춰서 사진을 잘라주세요.", Toast.LENGTH_LONG).show();
-                }
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select a photo"),
+                        GALLERY_IMAGE_REQUEST);
+                Toast.makeText(GalleryActivity.this, "원재료 분석표에 맞춰서 사진을 잘라주세요.", Toast.LENGTH_LONG).show();
+            }
         });
 
         btn_gallery_reset.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +106,8 @@ public class GalleryActivity extends AppCompatActivity {
         btn_gallery_result.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Intent intent = new Intent (getApplicationContext(),CameraResultActivity.class);
-               // startActivity(intent);
+                //  Intent intent = new Intent (getApplicationContext(),CameraResultActivity.class);
+                // startActivity(intent);
                 if(imageUriResultCrop!=null) {
                     uploadImage(imageUriResultCrop);
                 }
@@ -280,7 +286,7 @@ public class GalleryActivity extends AppCompatActivity {
         return annotateRequest;
     }
 
-    protected static class LableDetectionTask extends AsyncTask<Object, Void, String> {
+    protected  class LableDetectionTask extends AsyncTask<Object, Void, String> {
         private final WeakReference<GalleryActivity> mActivityWeakReference;
         private Vision.Images.Annotate mRequest;
 
@@ -295,7 +301,6 @@ public class GalleryActivity extends AppCompatActivity {
                 Log.d(TAG, "created Cloud Vision request object, sending request");
                 BatchAnnotateImagesResponse response = mRequest.execute();
                 return Correction(convertResponseToString(response));
-
             } catch (GoogleJsonResponseException e) {
                 Log.d(TAG, "failed to make API request because " + e.getContent());
             } catch (IOException e) {
@@ -348,7 +353,7 @@ public class GalleryActivity extends AppCompatActivity {
         return Bitmap.createScaledBitmap(bitmap, resizedWidth, resizedHeight, false);
     }
 
-    private static String convertResponseToString(BatchAnnotateImagesResponse response) {
+    private  String convertResponseToString(BatchAnnotateImagesResponse response) {
         String message;
         List<EntityAnnotation> labels = response.getResponses().get(0).getTextAnnotations();
         if (labels != null) {
@@ -356,224 +361,249 @@ public class GalleryActivity extends AppCompatActivity {
         } else {
             message ="nothing";
         }
-
         return message;
     }
 
-    private static String split(String message){
-        List<String> result = Arrays.asList(message.split(","));
-
-        String delim = "\n";
-
-        StringBuilder sb = new StringBuilder();
-
-        int i = 0;
-        while (i < result.size() - 1) {
-            sb.append(result.get(i));
-            sb.append(delim);
-            i++;
-        }
-        sb.append(result.get(i));
-
-        String res = sb.toString();
-
-        return res;
-    }
     /*
     param:
-    s1 : String from OCR
+    ocr : String from OCR
     */
-    private static int LCS(String ocr){
+    private int LCSprob(String ocr){
 
-        List<String> Food = Arrays.asList("카페인", "가다랑어", "자몽", "알코올", "니코틴", "자몽", "참치", "철분", "마그네슘", "생강", "마늘", "오렌지", "감초캔디", "칼륨", "아스파라거스", "민들레차", "칼슘", "녹차", "비타민E", "비타민A", "인삼", "은행엽", "감자", "민들레", "철분보충제", "마그네슘보충제", "탄산염제산제", "칼슘인", "아연", "구리", "제산제", "칼륨보충제", "멜라토닌", "사과", "오렌지", "계란", "우유", "메밀", "땅콩", "대두", "밀", "고등어", "게", "새우", "돼지고기", "복숭아", "토마토", "아황산류", "호두", "닭고기", "쇠고기", "오징어", "잣", "조개류");
+        // DB 부분작성
+        DatabaseHelper mDb;
+        mDb = new DatabaseHelper(this);
+        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
+        List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
+
+        List<Allergy> aResultList = mDb.getAllAllergy(); // 검색된 값을 저장할 알러지 리스트
+        List<Disease> dResultList = mDb.getAllDisease(); //검색된 값을 저장할 질병 리스트
+
+        List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
+
+
+        for(Allergy allergy : aList) {
+            if(allergy.getIsChecked() == 1) // ischecked가 1이면
+                aResultList.add(allergy);
+        }
+
+        for(Disease disease : dList) {
+            if(disease.getIsChecked() == 1) // ischecked가 1이면
+                dResultList.add(disease);
+        }
+
+        // 해당 객체 리스트에서 음식명만 꺼내서 나눠주기
+
+        for(Allergy allergy : aResultList ) {
+            Food.add(allergy.getAllergy());
+        }
+
+        for(Disease disease : dResultList ) {
+            Food.add(disease.getFood_name());
+        }
 
         int i;
-        int index = -1;
+        int index = -1; // Index of Food list
         LongestCommonSubsequence lcs = new LongestCommonSubsequence();
-        double j = 2.0;
+        double two = 2.0; // Threshold for case of two characters
+        double three = 3.0; // Threshold for case of three characters
         for(i=0;i<Food.size();i++) {
-            //한글자인 경우
+
+            //Case of one character
+            //Case that length of CommonSubsequence = 1
             if(Food.get(i).length()==1){
                 if(lcs.length(ocr,Food.get(i))==1.0){
                     index = i;
                 }
             }
-            //2글자인 경우
+            //Case of two characters
+            //Choose case that length of CommonSubsequence is maximum
             else if(Food.get(i).length()==2) {
-                if (lcs.length(ocr, Food.get(i)) >= j) {
-                    j = lcs.length(ocr, Food.get(i));
+                if (lcs.length(ocr, Food.get(i)) >= two) {
+                    two = lcs.length(ocr, Food.get(i));
                     index = i;
                 }
             }
-            //3글자인 경우
-            else if(Food.get(i).length()==3) {
-                if (lcs.length(ocr, Food.get(i)) >= 3.0) {
-                    j = lcs.length(ocr, Food.get(i));
+            //Case of three characters
+            //Choose case that length of CommonSubsequence is maximum
+            else if(Food.get(i).length()>=3) {
+                if (lcs.length(ocr, Food.get(i)) >= three) {
+                    three = lcs.length(ocr, Food.get(i));
                     index = i;
+                }
+            }
+
+        }
+
+        return index;
+    }
+
+    /*
+    param:
+    ocr : String from OCR (seperateKOR)
+    */
+    private int LCSkor(String ocr){
+
+        // DB 부분작성
+        DatabaseHelper mDb;
+        mDb = new DatabaseHelper(this);
+        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
+        List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
+
+        List<Allergy> aResultList = mDb.getAllAllergy(); // 검색된 값을 저장할 알러지 리스트
+        List<Disease> dResultList = mDb.getAllDisease(); //검색된 값을 저장할 질병 리스트
+
+        List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
+
+
+        for(Allergy allergy : aList) {
+            if(allergy.getIsChecked() == 1) // ischecked가 1이면
+                aResultList.add(allergy);
+        }
+
+        for(Disease disease : dList) {
+            if(disease.getIsChecked() == 1) // ischecked가 1이면
+                dResultList.add(disease);
+        }
+
+        // 해당 객체 리스트에서 음식명만 꺼내서 나눠주기
+
+        for(Allergy allergy : aResultList ) {
+            Food.add(allergy.getAllergy());
+        }
+
+        for(Disease disease : dResultList ) {
+            Food.add(disease.getFood_name());
+        }
+
+        int i;
+        int index = -1;
+        LongestCommonSubsequence lcs = new LongestCommonSubsequence();
+        double temp = 50.0;
+        for(i=0;i<Food.size();i++) {
+            String Sfood = seperateKOR(Food.get(i));
+            //Case of inclusion relationship
+            if (lcs.length(ocr, Sfood) == (double) Sfood.length()) {
+                index = i;
+            }
+            //Use korean consonant and vowel for getting score
+            else if (ocr.length() <= Sfood.length()) {
+                double score = (double) Sfood.length() - lcs.length(Sfood, ocr);
+                if (score <= 1.0) {
+                    if (score < temp) {
+                        temp = score;
+                        index = i;
+                    }
                 }
             }
         }
 
         return index;
     }
+    /*
+    param:
+    ocr : String
+    seperate(Consonant, vowel)
+    module for seperating korean consonant and vowel using unicode
+     */
+    private String seperateKOR(String ocr){
+        int HANGEUL_BASE = 0xAC00;
+        int HANGEUL_END = 0xD7AF;
+        int CHO_BASE = 0x1100;
+        int JUNG_BASE = 0x1161;
+        int JONG_BASE = (int)0x11A8 - 1;
+        int JA_BASE = 0x3131;
+        int MO_BASE = 0x314F;
+
+        StringBuilder list = new StringBuilder();
+
+        for(char c : ocr.toCharArray()) {
+
+            if((c <= 10 && c <= 13) || c == 32) {
+                list.append(c);
+                continue;
+            } else if (c >= JA_BASE && c <= JA_BASE + 36) {
+                list.append(c);
+                continue;
+            } else if (c >= MO_BASE && c <= MO_BASE + 58) {
+                list.append((char)0);
+                continue;
+            } else if (c >= HANGEUL_BASE && c <= HANGEUL_END){
+                int choInt = (c - HANGEUL_BASE) / 28 / 21;
+                int jungInt = ((c - HANGEUL_BASE) / 28) % 21;
+                int jongInt = (c - HANGEUL_BASE) % 28;
+                char cho = (char) (choInt + CHO_BASE);
+                char jung = (char) (jungInt + JUNG_BASE);
+                char jong = jongInt != 0 ? (char) (jongInt + JONG_BASE) : 0;
+
+                list.append(cho);
+                list.append(jung);
+                list.append(jong);
+            } else {
+                list.append(c);
+            }
+
+        }
+        String res = list.toString();
+        return res;
+
+    }
+
     //LCS 결과값에 따라 결과값 추출
-    private static String Correction(String message){
-        List<String> Food = Arrays.asList("카페인", "가다랑어", "자몽", "알코올", "니코틴", "자몽", "참치", "철분", "마그네슘", "생강", "마늘", "오렌지", "감초캔디", "칼륨", "아스파라거스", "민들레차", "칼슘", "녹차", "비타민E", "비타민A", "인삼", "은행엽", "감자", "민들레", "철분보충제", "마그네슘보충제", "탄산염제산제", "칼슘인", "아연", "구리", "제산제", "칼륨보충제", "멜라토닌", "사과", "오렌지", "계란", "우유", "메밀", "땅콩", "대두", "밀", "고등어", "게", "새우", "돼지고기", "복숭아", "토마토", "아황산류", "호두", "닭고기", "쇠고기", "오징어", "잣", "조개류");
-        List<String> result = Arrays.asList(message.split(",| "));
+    private String Correction(String message){
+
+        // DB 부분작성
+        DatabaseHelper mDb;
+        mDb = new DatabaseHelper(this);
+        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
+        List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
+
+        List<Allergy> aResultList = mDb.getAllAllergy(); // 검색된 값을 저장할 알러지 리스트
+        List<Disease> dResultList = mDb.getAllDisease(); //검색된 값을 저장할 질병 리스트
+
+        List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
+
+
+        for(Allergy allergy : aList) {
+            if(allergy.getIsChecked() == 1) // ischecked가 1이면
+                aResultList.add(allergy);
+        }
+
+        for(Disease disease : dList) {
+            if(disease.getIsChecked() == 1) // ischecked가 1이면
+                dResultList.add(disease);
+        }
+
+        // 해당 객체 리스트에서 음식명만 꺼내서 나눠주기
+
+        for(Allergy allergy : aResultList ) {
+            Food.add(allergy.getAllergy());
+        }
+
+        for(Disease disease : dResultList ) {
+            Food.add(disease.getFood_name());
+        }
+
+        message.replaceAll("\n","");
+
+        List<String> result = Arrays.asList(message.split(",|\\(|\\)| "));
         String delim = "\n";
         StringBuilder test = new StringBuilder();
         int k;
         for(k=0;k<result.size();k++){
-            int j = LCS(result.get(k));
-            if(j!=-1){
-                //Collections.replaceAll(result,result.get(k),Food.get(j));
-                test.append(Food.get(j));
-                test.append(delim);
+            int p = LCSkor(seperateKOR(result.get(k)));
+            int r = LCSprob(result.get(k));
+            //Check if the return value is same between result of LCSkor and result of LCSprob
+            if(p == r) {
+                if (p != -1) {
+                    test.append(Food.get(p));
+                    test.append(delim);
+                }
             }
         }
+
         String ts = test.toString();
         return ts;
-/*
-        String delim = "\n";
-
-        StringBuilder sb = new StringBuilder();
-
-        int i = 0;
-        while (i < result.size() - 1) {
-            sb.append(result.get(i));
-            sb.append(delim);
-            i++;
-        }
-        sb.append(result.get(i));
-
-        String res = sb.toString();
-
-        return res;
- */
     }
 
-
-
-/*
-s1:Accurate result
-s2:OCR result
- */
-    private static void weightedLevenshtein(String s1, String s2, String message){
-
-        WeightedLevenshtein wl = new WeightedLevenshtein(new CharacterSubstitutionInterface() {
-            public double cost(char c1, char c2) {
-
-                List<String> result = Arrays.asList(message.split(",| "));
-                MetricLCS lcs = new MetricLCS();
-                int i=0;
-                for(i=0;i<s1.length();i++){
-                    c1 = s1.charAt(i);
-                    c2 = s2.charAt(i);
-                }
-                // The cost for substituting 't' and 'r' is considered
-                // smaller as these 2 are located next to each other
-                // on a keyboard
-                switch(c2){
-                    case '지':
-                        if(c1 == '제')
-                        return 0.5;
-                    case '왕':
-                        if(c1 == '황')
-                        return 0.5;
-                    case '운':
-                        if(c1 == '우')
-                        return 0.5;
-                    case '둘':
-                        if(c1 == '물')
-                        return 0.5;
-                    case '첩':
-                        if(c1 == '찹')
-                        return 0.5;
-                    case '세':
-                        if(c1 == '베')
-                        return 0.5;
-                    case '요':
-                        if(c1 == '유')
-                        return 0.5;
-                    case '덕':
-                        if(c1 == '덱')
-                        return 0.5;
-                    case '역':
-                        if(c1 == '엑')
-                        return 0.5;
-                    case '사':
-                        if(c1 == '새')
-                        return 0.5;
-                    case '소':
-                        if(c1 == '스')
-                        return 0.5;
-                    case '여':
-                        if(c1 == '야')
-                        return 0.5;
-                    case '제':
-                        if(c1 == '채')
-                        return 0.5;
-                    case '유':
-                        if(c1 == '육')
-                        return 0.5;
-                    case '재':
-                        if(c1 == '제')
-                        return 0.5;
-                    case '항':
-                        if(c1 == '향')
-                        return 0.5;
-                    case '기':
-                        if(c1 == '개')
-                        return 0.5;
-                    case '내':
-                        if(c1 == '매')
-                        return 0.5;
-                    case '공':
-                        if(c1 == '농')
-                        return 0.5;
-                    case '로':
-                        if(c1 == '료')
-                        return 0.5;
-                    case '한':
-                        if(c1 == '합')
-                        return 0.5;
-                    case '행':
-                        if(c1 == '향')
-                        return 0.5;
-                    case '배':
-                        if(c1 == '베')
-                        return 0.5;
-                    case '이':
-                        if(c1 == '인')
-                        return 0.5;
-                    case '서':
-                        if(c1 == '산')
-                        return 0.5;
-                    case '청':
-                        if(c1 == '참')
-                        return 0.5;
-                    case '처':
-                        if(c1 == '치')
-                        return 0.5;
-                    case '험':
-                        if(c1 == '한')
-                        return 0.5;
-                    case '영':
-                        if(c1 == '량')
-                        return 0.5;
-                    case '장':
-                        if(c1 == '정')
-                        return 0.5;
-                    case '아':
-                        if(c1 == '이')
-                        return 0.5;
-                }
-
-                // For most cases, the cost of substituting 2 characters
-                // is 1.0
-                return 1.0;
-            }
-        });
-
-    }
 }

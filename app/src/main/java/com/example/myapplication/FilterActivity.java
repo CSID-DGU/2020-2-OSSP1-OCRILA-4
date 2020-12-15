@@ -46,7 +46,6 @@ public class FilterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
-
         btn_allergy_nanlyu = findViewById(R.id.btn_allergy_nanlyu);
         btn_allergy_uyu = findViewById(R.id.btn_allergy_uyu);
         btn_allergy_memil = findViewById(R.id.btn_allergy_memil);
