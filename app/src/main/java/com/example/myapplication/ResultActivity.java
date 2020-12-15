@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class ResultActivity extends AppCompatActivity {
 
     ImageView result_iv;
     Uri uri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -171,6 +173,10 @@ public class ResultActivity extends AppCompatActivity {
             if (activity != null && !activity.isFinishing()) {
                 TextView tv_ocrResult = activity.findViewById(R.id.result_image_details);
                 tv_ocrResult.setText(result);
+                TextView result_allergy_label =  activity.findViewById(R.id.result_allergy_label);
+                TextView result_disease_label =  activity.findViewById(R.id.result_disease_label);
+                result_allergy_label.setVisibility(View.VISIBLE);
+                result_disease_label.setVisibility(View.VISIBLE);
             }
         }
     }
