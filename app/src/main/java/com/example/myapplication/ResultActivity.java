@@ -66,6 +66,7 @@ public class ResultActivity extends AppCompatActivity {
         result_iv.setImageURI(uri);
         result_allergy_detail = findViewById(R.id.result_allergy_details);
         result_disease_detail = findViewById(R.id.result_disease_details);
+        mDb = new DatabaseHelper(this);
         uploadImage(uri);
     }
 
@@ -188,7 +189,7 @@ public class ResultActivity extends AppCompatActivity {
             if (activity != null && !activity.isFinishing()) {
                 // TextView tv_ocrResult = activity.findViewById(R.id.result_image_details); 삭제
                 // tv_ocrResult.setText(result);
-                Log.d("test",info.toString());
+
                 List<Disease> result_disease = mDb.checkDisease(info);
                 List<String> result_allergy = mDb.checkAllergy(info);
 
@@ -263,7 +264,7 @@ public class ResultActivity extends AppCompatActivity {
         } else {
             message = "nothing";
         }
-        Log.d("test",message);
+        Log.v("dbOCR",message);
         return message;
     }
 
@@ -281,15 +282,27 @@ s1 : String from OCR
         List<Allergy> aList = mDb.getAllAllergy(); // 검색할 알러지 리스트
         List<Disease> dList = mDb.getAllDisease(); //검색할 질병 리스트
 
-
         List<Allergy> aResultList = new ArrayList<Allergy>(); // 검색된 값을 저장할 알러지 리스트
         List<Disease> dResultList = new ArrayList<Disease>(); //검색된 값을 저장할 질병 리스트
 
         List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
 
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) // ischecked가 1이면
+            if (allergy.getIsChecked() == 1) {
                 aResultList.add(allergy);
+                if (allergy.getAllergy().equals("소고기")) {
+                    Allergy data1 = new Allergy();
+                    data1.setAllergy("쇠고기");
+                    aResultList.add(data1);
+                } else if (allergy.getAllergy().equals("난류")) {
+                    Allergy data1 = new Allergy();
+                    Allergy data2 = new Allergy();
+                    data1.setAllergy("계란");
+                    data2.setAllergy("달걀");
+                    aResultList.add(data1);
+                    aResultList.add(data2);
+                }
+            }
         }
 
         for (Disease disease : dList) {
@@ -335,7 +348,7 @@ s1 : String from OCR
             }
         }
 
-        mDb.close();
+
         return index;
     }
 
@@ -386,7 +399,7 @@ s1 : String from OCR
     private ArrayList<String> Correction(String message) {
 
         // DB 부분작성
-        mDb = new DatabaseHelper(this);
+
         List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
         List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
 
@@ -397,8 +410,21 @@ s1 : String from OCR
 
 
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) // ischecked가 1이면
+            if (allergy.getIsChecked() == 1) {
                 aResultList.add(allergy);
+                if (allergy.getAllergy().equals("소고기")) {
+                    Allergy data1 = new Allergy();
+                    data1.setAllergy("쇠고기");
+                    aResultList.add(data1);
+                } else if (allergy.getAllergy().equals("난류")) {
+                    Allergy data1 = new Allergy();
+                    Allergy data2 = new Allergy();
+                    data1.setAllergy("계란");
+                    data2.setAllergy("달걀");
+                    aResultList.add(data1);
+                    aResultList.add(data2);
+                }
+            }
         }
 
         for (Disease disease : dList) {
@@ -419,6 +445,8 @@ s1 : String from OCR
 
         //LCS 결과 리스트에 저장
         List<String> result = Arrays.asList(message.split(",| "));
+        //String delim = "\n";
+        //StringBuilder test = new StringBuilder();
         ArrayList<String> test = new ArrayList<>();
         ArrayList<String> real_result = new ArrayList<>();
         String temp = "";
@@ -437,7 +465,7 @@ s1 : String from OCR
                 real_result.add(data);
         }
 
-        mDb.close();
+
         return real_result;
     }
 
