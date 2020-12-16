@@ -42,7 +42,7 @@ import java.util.List;
 import info.debatty.java.stringsimilarity.LongestCommonSubsequence;
 
 public class ResultActivity extends AppCompatActivity {
-    private static final String CLOUD_VISION_API_KEY = "AIzaSyDCyY64zrUdVTkBz_R7kozFEfpkpkH6vP8";
+    private static final String CLOUD_VISION_API_KEY = BuildConfig.API_KEY;
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
     private static final int MAX_TEXT_RESULTS = 10;
@@ -264,45 +264,28 @@ public class ResultActivity extends AppCompatActivity {
         } else {
             message = "nothing";
         }
-        Log.v("dbOCR",message);
+
         return message;
     }
 
     //단어 사전
 
-    /*
-param:
-s1 : String from OCR
-*/
-    private int LCS(String ocr) {
+    private List<Integer> LCSprob(String ocr){
 
         // DB 부분작성
-        DatabaseHelper mDb;
-        mDb = new DatabaseHelper(this);
-        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 알러지 리스트
-        List<Disease> dList = mDb.getAllDisease(); //검색할 질병 리스트
+
+        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
+        List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
 
         List<Allergy> aResultList = new ArrayList<Allergy>(); // 검색된 값을 저장할 알러지 리스트
         List<Disease> dResultList = new ArrayList<Disease>(); //검색된 값을 저장할 질병 리스트
 
         List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
 
+
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) {
+            if (allergy.getIsChecked() == 1) // ischecked가 1이면
                 aResultList.add(allergy);
-                if (allergy.getAllergy().equals("소고기")) {
-                    Allergy data1 = new Allergy();
-                    data1.setAllergy("쇠고기");
-                    aResultList.add(data1);
-                } else if (allergy.getAllergy().equals("난류")) {
-                    Allergy data1 = new Allergy();
-                    Allergy data2 = new Allergy();
-                    data1.setAllergy("계란");
-                    data2.setAllergy("달걀");
-                    aResultList.add(data1);
-                    aResultList.add(data2);
-                }
-            }
         }
 
         for (Disease disease : dList) {
@@ -319,38 +302,104 @@ s1 : String from OCR
         for (Disease disease : dResultList) {
             Food.add(disease.getFood_name());
         }
-
-
         int i;
-        int index = -1;
+        //int index = -1; // Index of Food list
+        List<Integer> index = new ArrayList<>();
         LongestCommonSubsequence lcs = new LongestCommonSubsequence();
-        double j = 2.0;
-        for (i = 0; i < Food.size(); i++) {
-            //한글자인 경우
-            if (Food.get(i).length() == 1) {
-                if (lcs.length(ocr, Food.get(i)) == 1.0) {
-                    index = i;
+        double two = 1.0; // Threshold for case of two characters
+        double three = 3.0; // Threshold for case of three characters
+        for(i=0;i<Food.size();i++) {
+
+            //Case of one character
+            //Case that length of CommonSubsequence = 1
+            if(Food.get(i).length()==1){
+                if(lcs.length(ocr,Food.get(i))==1.0){
+                    index.add(i);
                 }
             }
-            //2글자인 경우
-            else if (Food.get(i).length() == 2) {
-                if (lcs.length(ocr, Food.get(i)) >= j) {
-                    j = lcs.length(ocr, Food.get(i));
-                    index = i;
+            //Case of two characters
+            //Choose case that length of CommonSubsequence is maximum
+            else if(Food.get(i).length()==2) {
+                if (lcs.length(ocr, Food.get(i)) >= 1.0) {
+                    two = lcs.length(ocr, Food.get(i));
+                    index.add(i);
                 }
             }
-            //3글자인 경우
-            else if (Food.get(i).length() >= 3) {
-                if (lcs.length(ocr, Food.get(i)) >= 3.0) {
-                    j = lcs.length(ocr, Food.get(i));
-                    index = i;
+            //Case of three characters
+            //Choose case that length of CommonSubsequence is maximum
+            else if(Food.get(i).length()>=3) {
+                if (lcs.length(ocr, Food.get(i)) >= 1.0) {
+                    three = lcs.length(ocr, Food.get(i));
+                    index.add(i);
+                }
+            }
+
+        }
+
+        return index;
+    }
+
+    /*
+    param:
+    ocr : String from OCR (seperateKOR)
+    */
+    private List<Integer> LCSkor(String ocr){
+
+        // DB 부분작성
+
+        List<Allergy> aList = mDb.getAllAllergy(); // 검색할 질병 리스트
+        List<Disease> dList = mDb.getAllDisease(); //검색할 알러지 리스트
+
+        List<Allergy> aResultList = new ArrayList<Allergy>(); // 검색된 값을 저장할 알러지 리스트
+        List<Disease> dResultList = new ArrayList<Disease>(); //검색된 값을 저장할 질병 리스트
+
+        List<String> Food = new ArrayList<>(); //추출된 알러지 리스트
+
+
+        for (Allergy allergy : aList) {
+            if (allergy.getIsChecked() == 1) // ischecked가 1이면
+                aResultList.add(allergy);
+        }
+
+        for (Disease disease : dList) {
+            if (disease.getIsChecked() == 1) // ischecked가 1이면
+                dResultList.add(disease);
+        }
+
+        // 해당 객체 리스트에서 음식명만 꺼내서 나눠주기
+
+        for (Allergy allergy : aResultList) {
+            Food.add(allergy.getAllergy());
+        }
+
+        for (Disease disease : dResultList) {
+            Food.add(disease.getFood_name());
+        }
+        int i;
+        List<Integer> index = new ArrayList<>();
+        LongestCommonSubsequence lcs = new LongestCommonSubsequence();
+        double temp = 50.0;
+        for(i=0;i<Food.size();i++) {
+            String Sfood = seperateKOR(Food.get(i));
+            //Case of inclusion relationship
+            if (lcs.length(ocr, Sfood) == (double) Sfood.length()) {
+                index.add(i);
+            }
+            //Use korean consonant and vowel for getting score
+            else if (ocr.length() <= Sfood.length()) {
+                double score = (double) Sfood.length() - lcs.length(Sfood, ocr);
+                if (score <= 2.0) {
+                    if (score < temp) {
+                        temp = score;
+                        index.add(i);
+                    }
                 }
             }
         }
 
-
         return index;
     }
+
 
     private String seperateKOR(String ocr) {
         int HANGEUL_BASE = 0xAC00;
@@ -410,21 +459,8 @@ s1 : String from OCR
 
 
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) {
+            if (allergy.getIsChecked() == 1) // ischecked가 1이면
                 aResultList.add(allergy);
-                if (allergy.getAllergy().equals("소고기")) {
-                    Allergy data1 = new Allergy();
-                    data1.setAllergy("쇠고기");
-                    aResultList.add(data1);
-                } else if (allergy.getAllergy().equals("난류")) {
-                    Allergy data1 = new Allergy();
-                    Allergy data2 = new Allergy();
-                    data1.setAllergy("계란");
-                    data2.setAllergy("달걀");
-                    aResultList.add(data1);
-                    aResultList.add(data2);
-                }
-            }
         }
 
         for (Disease disease : dList) {
@@ -444,7 +480,8 @@ s1 : String from OCR
 
 
         //LCS 결과 리스트에 저장
-        List<String> result = Arrays.asList(message.split(",| "));
+        message.replaceAll("\n","");
+        List<String> result = Arrays.asList(message.split(",|\\(|\\)| "));
         //String delim = "\n";
         //StringBuilder test = new StringBuilder();
         ArrayList<String> test = new ArrayList<>();
@@ -453,9 +490,20 @@ s1 : String from OCR
 
         int k;
         for (k = 0; k < result.size(); k++) {
-            int j = LCS(result.get(k));
-            if (j != -1) {
-                test.add(Food.get(j));
+            //int p = LCSkor(seperateKOR(result.get(k)));
+            List<Integer> r = LCSprob(result.get(k));
+            //Check if the return value is same between result of LCSkor and result of LCSprob
+            List<Integer> p = LCSkor(seperateKOR(result.get(k)));
+            int h; int m;
+            for(h=0;h<p.size();h++){
+                for(m=0;m<r.size();m++){
+                    if(p.get(h) == r.get(m)) {
+                        if (r.get(m) != -1) {
+                            test.add(Food.get(r.get(m)));
+                            break;
+                        }
+                    }
+                }
             }
         }
 
