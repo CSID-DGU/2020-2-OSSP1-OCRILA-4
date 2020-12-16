@@ -327,14 +327,14 @@ public class ResultActivity extends AppCompatActivity {
             //Case of one character
             //Case that length of CommonSubsequence = 1
             if(Food.get(i).length()==1){
-                if(lcs.length(ocr,Food.get(i))==two){
+                if(lcs.length(ocr,Food.get(i))==1.0){
                     index.add(i);
                 }
             }
             //Case of two characters
             //Choose case that length of CommonSubsequence is maximum
             else if(Food.get(i).length()==2) {
-                if (lcs.length(ocr, Food.get(i)) >= three) {
+                if (lcs.length(ocr, Food.get(i)) >= two) {
                     two = lcs.length(ocr, Food.get(i));
                     index.add(i);
                 }
@@ -342,7 +342,7 @@ public class ResultActivity extends AppCompatActivity {
             //Case of three characters
             //Choose case that length of CommonSubsequence is maximum
             else if(Food.get(i).length()>=3) {
-                if (lcs.length(ocr, Food.get(i)) >= 1.0) {
+                if (lcs.length(ocr, Food.get(i)) >= three) {
                     three = lcs.length(ocr, Food.get(i));
                     index.add(i);
                 }
