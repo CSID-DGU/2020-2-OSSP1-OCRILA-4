@@ -196,7 +196,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_DISEASE + " WHERE "
-                + "disease" + " = " + "\""  + disease_name + "\"" ;
+                + "disease" + " = " + "\""  + disease_name + "\"";
 
         Cursor c = db.rawQuery(selectQuery, null);
 
@@ -213,6 +213,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 diseases.add(td);
             } while (c.moveToNext());
         }
+
         return diseases;
     }
 
@@ -223,10 +224,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<Disease> diseasesList = new ArrayList<Disease>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        for (String disease_name : textList) {
+        for (String food_name : textList) {
 
             String selectQuery = "SELECT  * FROM " + TABLE_DISEASE + " WHERE "
-                    + "disease" + " = " + "\"" + disease_name + "\"";
+                    + "food_name" + " = " + "\"" + food_name + "\"" + " AND "
+                    + "isChecked" + " = " + "\"" + "1" + "\"";
 
             Cursor c = db.rawQuery(selectQuery, null);
 

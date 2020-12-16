@@ -42,7 +42,7 @@ import java.util.List;
 import info.debatty.java.stringsimilarity.LongestCommonSubsequence;
 
 public class ResultActivity extends AppCompatActivity {
-    private static final String CLOUD_VISION_API_KEY = BuildConfig.API_KEY;
+    private static final String CLOUD_VISION_API_KEY = "AIzaSyDCyY64zrUdVTkBz_R7kozFEfpkpkH6vP8";
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
     private static final int MAX_TEXT_RESULTS = 10;
@@ -190,21 +190,10 @@ public class ResultActivity extends AppCompatActivity {
                 // TextView tv_ocrResult = activity.findViewById(R.id.result_image_details); 삭제
                 // tv_ocrResult.setText(result);
 
-
-                List<String> result_allergy = mDb.checkAllergy(info);
                 List<Disease> result_disease = mDb.checkDisease(info);
-                Log.d("result", result_allergy.toString());
+                List<String> result_allergy = mDb.checkAllergy(info);
 
-                for (Disease disease : result_disease) { //for문으로 해당 객체 하나씩 중괄호 작업 반복
-                    StringBuilder str = new StringBuilder();
-                    str.append("질병이름 : " + disease.getDisease()); // 이름 문자열 뒤에 추가
-                    str.append(" 위험음식 : " + disease.getFood_name()); // 음식 문자열 뒤에 추가
-                    str.append(" 관련약물 : " + disease.getDrug()); // 약물 문자열 뒤에 추가
 
-                    String text = str.toString(); // string형으로 형변환
-
-                    Log.d("result", text); // 로그로 찍어서 확인
-                }
                 if (result_allergy.toString() != "[]") {
                     result_allergy_detail.setTextColor(Color.RED); //null 아니면 색깔 변경.
                     result_allergy_detail.setText(result_allergy.toString());
@@ -215,9 +204,16 @@ public class ResultActivity extends AppCompatActivity {
 
                 if (result_disease.size() > 0) {
                     result_disease_detail.setTextColor(Color.RED);
-                    for (int i = 0; i < result_disease.size(); i++) {
-                        result_allergy_detail.setText(result_disease.get(i).getDrug());
+                    String text=null;
+                    StringBuilder str = new StringBuilder();
+                    for (Disease disease : result_disease) { //for문으로 해당 객체 하나씩 중괄호 작업 반복
+                        str.append("질병이름 : " + disease.getDisease()+", "); // 이름 문자열 뒤에 추가
+                        str.append("위험음식 : " + disease.getFood_name()+", "); // 음식 문자열 뒤에 추가
+                        str.append("관련약물 : " + disease.getDrug()); // 약물 문자열 뒤에 추가
+                        str.append("\n\n");
+                        text = str.toString(); // string형으로 형변환
                     }
+                    result_disease_detail.setText(text);
                 } else if (result_disease.size() == 0) {
                     result_disease_detail.setTextColor(Color.GREEN);
                     result_disease_detail.setText("검출된 유해한 성분이 없습니다.");
@@ -466,4 +462,3 @@ s1 : String from OCR
     }
 
 }
-
