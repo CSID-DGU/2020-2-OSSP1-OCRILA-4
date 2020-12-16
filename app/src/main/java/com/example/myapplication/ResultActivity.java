@@ -284,8 +284,22 @@ public class ResultActivity extends AppCompatActivity {
 
 
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) // ischecked가 1이면
+            if (allergy.getIsChecked() == 1) {
                 aResultList.add(allergy);
+                if (allergy.getAllergy().equals("소고기")) {
+                    Allergy data1 = new Allergy();
+                    data1.setAllergy("쇠고기");
+                    aResultList.add(data1);
+                } else if (allergy.getAllergy().equals("난류")) {
+                    Allergy data1 = new Allergy();
+                    Allergy data2 = new Allergy();
+                    data1.setAllergy("계란");
+                    data2.setAllergy("달걀");
+                    aResultList.add(data1);
+                    aResultList.add(data2);
+                    Log.v("db검출", data1.getAllergy());
+                }
+            }
         }
 
         for (Disease disease : dList) {
@@ -357,10 +371,23 @@ public class ResultActivity extends AppCompatActivity {
 
 
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) // ischecked가 1이면
+            if (allergy.getIsChecked() == 1) {
                 aResultList.add(allergy);
+                if (allergy.getAllergy().equals("소고기")) {
+                    Allergy data1 = new Allergy();
+                    data1.setAllergy("쇠고기");
+                    aResultList.add(data1);
+                } else if (allergy.getAllergy().equals("난류")) {
+                    Allergy data1 = new Allergy();
+                    Allergy data2 = new Allergy();
+                    data1.setAllergy("계란");
+                    data2.setAllergy("달걀");
+                    aResultList.add(data1);
+                    aResultList.add(data2);
+                    Log.v("db검출", data1.getAllergy());
+                }
+            }
         }
-
         for (Disease disease : dList) {
             if (disease.getIsChecked() == 1) // ischecked가 1이면
                 dResultList.add(disease);
@@ -459,8 +486,21 @@ public class ResultActivity extends AppCompatActivity {
 
 
         for (Allergy allergy : aList) {
-            if (allergy.getIsChecked() == 1) // ischecked가 1이면
+            if (allergy.getIsChecked() == 1) {
                 aResultList.add(allergy);
+                if (allergy.getAllergy().equals("소고기")) {
+                    Allergy data1 = new Allergy();
+                    data1.setAllergy("쇠고기");
+                    aResultList.add(data1);
+                } else if (allergy.getAllergy().equals("난류")) {
+                    Allergy data1 = new Allergy();
+                    Allergy data2 = new Allergy();
+                    data1.setAllergy("계란");
+                    data2.setAllergy("달걀");
+                    aResultList.add(data1);
+                    aResultList.add(data2);
+                }
+            }
         }
 
         for (Disease disease : dList) {
