@@ -1,2 +1,4 @@
+include ':java-string-similarity-2.0.0'
+include ':java-string-similarity-2.0.0'
 include ':app'
 rootProject.name = "My Application"

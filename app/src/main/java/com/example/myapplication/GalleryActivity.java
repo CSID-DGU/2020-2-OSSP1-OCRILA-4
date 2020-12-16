@@ -58,7 +58,7 @@ public class GalleryActivity extends AppCompatActivity {
     private final String SAMPLE_CROPPED_IMG_NAME="SampleCrop";
 
     private Uri imageUriResultCrop;
-    private TextView tv_ocrResult;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
