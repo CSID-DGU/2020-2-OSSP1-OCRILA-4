@@ -264,7 +264,7 @@ public class ResultActivity extends AppCompatActivity {
         } else {
             message = "nothing";
         }
-
+        Log.d("test",message);
         return message;
     }
 
@@ -321,20 +321,20 @@ public class ResultActivity extends AppCompatActivity {
         List<Integer> index = new ArrayList<>();
         LongestCommonSubsequence lcs = new LongestCommonSubsequence();
         double two = 1.0; // Threshold for case of two characters
-        double three = 3.0; // Threshold for case of three characters
+        double three = 1.0; // Threshold for case of three characters
         for(i=0;i<Food.size();i++) {
 
             //Case of one character
             //Case that length of CommonSubsequence = 1
             if(Food.get(i).length()==1){
-                if(lcs.length(ocr,Food.get(i))==1.0){
+                if(lcs.length(ocr,Food.get(i))==two){
                     index.add(i);
                 }
             }
             //Case of two characters
             //Choose case that length of CommonSubsequence is maximum
             else if(Food.get(i).length()==2) {
-                if (lcs.length(ocr, Food.get(i)) >= 1.0) {
+                if (lcs.length(ocr, Food.get(i)) >= three) {
                     two = lcs.length(ocr, Food.get(i));
                     index.add(i);
                 }
@@ -415,8 +415,8 @@ public class ResultActivity extends AppCompatActivity {
             //Use korean consonant and vowel for getting score
             else if (ocr.length() <= Sfood.length()) {
                 double score = (double) Sfood.length() - lcs.length(Sfood, ocr);
-                if (score <= 2.0) {
-                    if (score < temp) {
+                if (score <= 1.0) {
+                    if (score <= temp) {
                         temp = score;
                         index.add(i);
                     }
@@ -522,15 +522,12 @@ public class ResultActivity extends AppCompatActivity {
         //LCS 결과 리스트에 저장
         message.replaceAll("\n","");
         List<String> result = Arrays.asList(message.split(",|\\(|\\)| "));
-        //String delim = "\n";
-        //StringBuilder test = new StringBuilder();
         ArrayList<String> test = new ArrayList<>();
         ArrayList<String> real_result = new ArrayList<>();
         String temp = "";
 
         int k;
         for (k = 0; k < result.size(); k++) {
-            //int p = LCSkor(seperateKOR(result.get(k)));
             List<Integer> r = LCSprob(result.get(k));
             //Check if the return value is same between result of LCSkor and result of LCSprob
             List<Integer> p = LCSkor(seperateKOR(result.get(k)));
