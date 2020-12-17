@@ -15,3 +15,6 @@ Project is created with:
 ## Preview
 ![Main](./images/main.jpg)
 ![Profile](./images/profile.jpg)
+
+## Settings
+* SDK structure -> java-string-similarity-2.0.0.jar import 필요
