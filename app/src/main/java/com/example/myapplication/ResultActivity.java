@@ -323,10 +323,18 @@ public class ResultActivity extends AppCompatActivity {
         double two = 1.0; // Threshold for case of two characters
         double three = 1.0; // Threshold for case of three characters
         for(i=0;i<Food.size();i++) {
-
+            //Unique Error case between 호주 and 호두
+            if(ocr=="호주"){}
+            //Case of vitamin
+            //Exception because LCS can't tell the difference
+            else if(Food.get(i)=="비타민A" || Food.get(i)=="비타민E"){
+                if(lcs.length(ocr,Food.get(i))==4.0){
+                    index.add(i);
+                }
+            }
             //Case of one character
             //Case that length of CommonSubsequence = 1
-            if(Food.get(i).length()==1){
+            else if(Food.get(i).length()==1){
                 if(lcs.length(ocr,Food.get(i))==1.0){
                     index.add(i);
                 }
