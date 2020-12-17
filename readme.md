@@ -17,4 +17,4 @@ Project is created with:
 ![Profile](./images/profile.jpg)
 
 ## Settings
-* SDK structure -> java-string-similarity-2.0.0.jar import 필요
+* SDK structure -> Dependency -> java-string-similarity-2.0.0.jar import
