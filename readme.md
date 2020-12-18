@@ -17,6 +17,6 @@ Project is created with:
 ![Profile](./images/profile.jpg)
 
 ## Settings
-* Project structure -> Dependencies -> java-string-similarity-2.0.0.jar import
+* Project structure -> Dependencies -> jar Dependencies -> directory of java-string-similarity-2.0.0.jar import
 * Gradle Synchronize 
 ![Syn](./images/sync.jpg)
