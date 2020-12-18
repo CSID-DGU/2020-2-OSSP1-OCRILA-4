@@ -18,3 +18,5 @@ Project is created with:
 
 ## Settings
 * Project structure -> Dependencies -> java-string-similarity-2.0.0.jar import
+* Gradle Synchronize 
+![Syn](./images/sync.jpg)
